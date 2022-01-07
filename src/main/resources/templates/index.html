@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Louibit Trade</title>
+    <title th:text="#{home}">Louibit Trade</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
@@ -38,7 +38,6 @@
 </head>
 <body>
 
-    
     <!-- Header START -->
     <header class="navbar-light navbar-sticky header-static">
         <!-- Logo Nav START -->
@@ -174,6 +173,9 @@
 
 
 
+    <h1 th:text="'i18n Test'"></h1>
+    <h4 th:text="#{home}"></h4>
+    <h4 th:text="#{welcome('kim')}"></h4>
 
 
 
