@@ -113,7 +113,7 @@ var e = {
         e.pricing(),
         e.stickyElement(),
         e.overlayScrollbars();
-
+        
     },
     isVariableDefined: function (el) {
         return typeof !!el && (el) != 'undefined' && el != null;
@@ -241,7 +241,7 @@ var e = {
         return document.querySelectorAll(selectors);
     },
 
-
+    
 
     // START: 01 Preloader
     preLoader: function () {
@@ -338,7 +338,7 @@ var e = {
               var sliderHoverPause = slider1.getAttribute('data-hoverpause') === 'true'; //option: true or false
               if (e.isVariableDefined(e.select('.custom-thumb'))) {
                 var sliderNavContainer = e.select('.custom-thumb');
-              }
+              } 
               var sliderLoop = slider1.getAttribute('data-loop') !== 'false'; //option: true or false
               var sliderRewind = slider1.getAttribute('data-rewind') === 'true'; //option: true or false
               var sliderAutoHeight = slider1.getAttribute('data-autoheight') === 'true'; //option: true or false
@@ -402,7 +402,7 @@ var e = {
                       }
                   }
               });
-          });
+          }); 
         }
     },
     // END: Tiny Slider
@@ -537,7 +537,7 @@ var e = {
     // START: 12 Choices
     choicesSelect: function () {
        var choice = e.select('.js-choice');
-
+       
        if (e.isVariableDefined(choice)) {
          var element = document.querySelectorAll('.js-choice');
 
@@ -590,7 +590,7 @@ var e = {
               show: false
             },
           },
-
+          
           dataLabels: {
             enabled: true
           },
@@ -663,7 +663,7 @@ var e = {
             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct ', 'Nov', 'Dec']
           },
           grid: {
-
+            
           },
           tooltip: {
             y: {
@@ -803,7 +803,7 @@ var e = {
           categories: ['Dec 01', 'Dec 02', 'Dec 03', 'Dec 04', 'Dec 05', 'Dec 06', 'Dec 07', 'Dec 08', 'Dec 09 ', 'Dec 10', 'Dec 11']
         },
         grid: {
-
+          
         },
         tooltip: {
           y: {
@@ -852,7 +852,7 @@ var e = {
           categories: ['Dec 01', 'Dec 02', 'Dec 03', 'Dec 04', 'Dec 05', 'Dec 06', 'Dec 07', 'Dec 08', 'Dec 09 ', 'Dec 10', 'Dec 11']
         },
         grid: {
-
+          
         },
         tooltip: {
           y: {
@@ -967,7 +967,7 @@ var e = {
             // Vimeo
             const playerVimeo = new Plyr('#player-vimeo', {});
             window.player = playerVimeo;
-
+            
             // HTML video
             const playerHtmlvideo = new Plyr('video', {
                 captions: {active: true}
@@ -982,7 +982,7 @@ var e = {
         }
     },
     // END: Video player
-
+    
     // START: 24 Dark mode
     darkMode: function () {
 
@@ -1007,7 +1007,7 @@ var e = {
           } else {
               style.setAttribute('href', 'assets/css/style.css');
           }
-
+          
           localStorage.setItem("data-theme", 'light') // save theme to local storage
         }
 
@@ -1079,7 +1079,7 @@ var e = {
     },
     // END: Sticky element
 
-
+ 
     // START: 27 Overlay scrollbars
     overlayScrollbars: function () {
       var os = e.select('.custom-scrollbar');
