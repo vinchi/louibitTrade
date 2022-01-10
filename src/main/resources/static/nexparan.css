@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+* {
+    font-family: 'Black Hand Sans';
+}
+
+.jb-xx-small { font-size: xx-small; }
+.jb-x-small { font-size: x-small; }
+.jb-small { font-size: small; }
+.jb-medium { font-size: medium; }
+.jb-large { font-size: large; }
+.jb-x-large { font-size: x-large; }
+.jb-xx-large { font-size: xx-large; }
+
+.box1 {
+    width: 0%;
+    height:100%;
+    background-color: #212529;
+    opacity: 0.2;
+    position: absolute;
+    transition: all ease 0.5s;
+}
+
+.box2 {
+    width: 0%;
+    height: 100%;
+    background-color: #212529;
+    opacity: 0.2;
+    position: absolute;
+    transition: all ease 0.5s;
+}
+
+.bids {
+    cursor: pointer;
+}
+.asks {
+    cursor: pointer;
+}
+
+.slider .range {
+    position: relative;
+}
+
+.slider .range div {
+    position: absolute;
+    color: #ddd;
+    font-weight: 100;
+}
+
+.slider .range div:nth-child(1) {
+    align-items: center;
+    left: 1%;
+}
+.slider .range div:nth-child(2) {
+    align-items: center;
+    left: 24%;
+}
+.slider .range div:nth-child(3) {
+    left: 48%;
+}
+.slider .range div:nth-child(4) {
+    align-items: center;
+    left: 72%;
+}
+.slider .range div:nth-child(5) {
+    align-items: center;
+    right: 0px;
+}
+
+.nav .nav-item .nav-link {
+    color: white;
+    /* background: #212529; */
+}
+
+.nav .nav-item .nav-link.active {
+    color: white;
+    background: #212529;
+}
+
+.input-group .input-group-text {
+    color: white;
+    background: #212529;
+}
+
+.input-group .input-group-text.active {
+    color: white;
+    background: #212529;
+}
+
+.input-group input[type="text"] {
+    color: white !important;
+    background: #212529 !important;
+}
+
+.total {
+    text-align : end;
+}
+
+.total1 {
+    text-align : end;
+}
+
+.time {
+    text-align : end;
+}
+
+.tPrice {
+    cursor: pointer;
+}

@@ -1,5 +1,7 @@
 package kr.nexparan.louibitTrade.controller;
 
+import kr.nexparan.louibitTrade.model.Board;
+import kr.nexparan.louibitTrade.repository.BoardRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -14,11 +16,15 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 import java.util.Locale;
 
 @Slf4j
 @Controller
 public class IndexController {
+
+    @Autowired
+    private BoardRepository boardRepository;
 
     @Autowired
     private MessageSource messageSource;
@@ -49,6 +55,23 @@ public class IndexController {
         return "history";
     }
 
+    @GetMapping("/notice")
+    public String notice(Model model) {
+        List<Board> boards = boardRepository.findAll();
+        model.addAttribute("boards", boards);
+        return "notice";
+    }
+
+    @GetMapping("/faq")
+    public String faq() {
+        return "faq";
+    }
+
+    @GetMapping("/contact")
+    public String contact() {
+        return "contact";
+    }
+
     @GetMapping("/referral")
     public String referral() {
         return "referral";
@@ -58,6 +81,27 @@ public class IndexController {
     public String fee() {
         return "fee";
     }
+
+    @GetMapping("/signin")
+    public String signin() {
+        return "signin";
+    }
+
+    @GetMapping("/signup")
+    public String signup() {
+        return "signup";
+    }
+
+    @GetMapping("/forgotpassword")
+    public String forgotpassword() {
+        return "forgotpassword";
+    }
+
+    @GetMapping("/error404")
+    public String error404() {
+        return "error404";
+    }
+
 
     @RequestMapping(value="/setChangeLanguage")
     public String changLanguage(@RequestParam(required=false)String locale, ModelMap map, HttpServletRequest request, HttpServletResponse response, Model model) {

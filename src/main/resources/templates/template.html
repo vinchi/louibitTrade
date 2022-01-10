@@ -96,7 +96,12 @@
 
                     <!-- Nav item 4 Megamenu-->
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" th:href="@{/service}" th:text="#{service}">Service</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="myService" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" th:text="#{service}">Service</a>
+                        <ul class="dropdown-menu" aria-labelledby="myService">
+                            <li> <a class="dropdown-item" href="#" th:href="@{/notice}" th:text="#{s_notice}">History</a></li>
+                            <li> <a class="dropdown-item" href="#" th:href="@{/faq}" th:text="#{s_faq}">Referral</a></li>
+                            <li> <a class="dropdown-item" href="#" th:href="@{/contact}"th:text="#{s_contact}">Fee</a></li>
+                        </ul>
                     </li>
 
                     <!-- Nav item 4 Megamenu-->

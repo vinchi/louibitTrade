@@ -1,0 +1,7 @@
+package kr.nexparan.louibitTrade.repository;
+
+import kr.nexparan.louibitTrade.model.Board;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BoardRepository extends JpaRepository<Board, Long> {
+}

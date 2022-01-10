@@ -9,6 +9,12 @@ group = 'kr.nexparan'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
+bootWar {
+	archiveBaseName='ROOT'
+	archiveFileName='ROOT.war'
+	archiveVersion="0.0.0"
+}
+
 repositories {
 	mavenCentral()
 }

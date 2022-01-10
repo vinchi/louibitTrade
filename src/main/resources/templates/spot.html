@@ -2,22 +2,604 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="head" th:replace="template :: head">
 </head>
+
+<link rel="stylesheet" type="text/css" href="nexparan.css" />
+
 <body>
+
 
 <!-- Header START -->
 <header class="navbar-light navbar-sticky header-static" th:replace="template :: header">
 </header>
 
 
-<h1>Spot</h1>
+<main>
+    <!-- =======================
+    Main Banner START -->
+    <section class="pt-0">
+        <!-- Main banner background image -->
+        <div class="container-fluid  bg-dark px-3 py-1">
+            <div class="text-white">
+                <div class="row">
+                    <div class="col-md-1">
+                        <div class="row fw-bold mx-0">
+                            BTC/USDT
+                        </div>
+                        <div class="row mx-0">
+                            @Bitcoin
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="row align-middle fw-bold mx-0" id="stock-price">
+                            ........
+                        </div>
+<!--                        <div class="row mx-0" id="stock-price1">-->
+<!--                        </div>-->
+                    </div>
+                    <div class="col-md-1">
+                        <div class="row mx-0 text-secondary">24H Change</div>
+                        <div class="row mx-0" id="24h-change">......</div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="row mx-0 text-secondary">24H High</div>
+                        <div class="row mx-0" id="24h-high">......</div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="row mx-0 text-secondary">24H Low</div>
+                        <div class="row mx-0" id="24h-low">......</div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="row mx-0 text-secondary">24H Vol(BTC)</div>
+                        <div class="row mx-0" id="24h-volume">......</div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="row mx-0 text-secondary">24H Vol(USDT)</div>
+                        <div class="row mx-0" id="24h-volume-usdt">......</div>
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row bg-dark text-white">
+            <div class="col-sm-8 px-0">
+                <div class="row-sm-12">
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container mx-0" style="height: 460px;">
+                        <div class="h-100" id="tradingview_17e1d"></div>
+                    </div>
+                    <!-- TradingView Widget END -->
+                </div>
+                <div class="row-sm-12 ps-3">
+                    <ul class="nav nav-tabs jb-small text-white bg-dark" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="position-tab" data-bs-toggle="tab" data-bs-target="#position" role="tab" aria-controls="position" aria-selected="true">스탑주문</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="follow-tab" data-bs-toggle="tab" data-bs-target="#follow" role="tab" aria-controls="follow" aria-selected="false">지정가주문</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="order-tab" data-bs-toggle="tab" data-bs-target="#order" role="tab" aria-controls="order" aria-selected="false">포지션</button>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content text-white bg-dark "  style="height: 220px">
+                        <div class="tab-pane active" id="position" role="tabpanel" aria-labelledby="position-tab">
+                            <table class="table table-dark jb-small">
+                                <thead>
+                                <tr>
+                                    <th scope="col">취소</th>
+                                    <th scope="col">심볼</th>
+                                    <th scope="col">포지션</th>
+                                    <th scope="col">수량</th>
+                                    <th scope="col">진입가격</th>
+                                    <th scope="col">강제청산가</th>
+                                    <th scope="col">증거금</th>
+                                    <th scope="col">수익</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">X</th>
+                                    <td>BTCUSDT</td>
+                                    <td>46802.03</td>
+                                    <td>0.00022</td>
+                                    <th>48023.00</th>
+                                    <td>45000.03</td>
+                                    <td>0.00023</td>
+                                    <td>0.002 0.3%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="follow" role="tabpanel" aria-labelledby="follow-tab">
+                            <table class="table table-dark jb-small">
+                                <thead>
+                                <tr>
+                                    <th scope="col">취소</th>
+                                    <th scope="col">심볼</th>
+                                    <th scope="col">포지션</th>
+                                    <th scope="col">수량</th>
+                                    <th scope="col">진입가격</th>
+                                    <th scope="col">강제청산가</th>
+                                    <th scope="col">증거금</th>
+                                    <th scope="col">수익</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">X</th>
+                                    <td>BTCUSDT</td>
+                                    <td>46802.03</td>
+                                    <td>0.00022</td>
+                                    <th>48023.00</th>
+                                    <td>45000.03</td>
+                                    <td>0.00023</td>
+                                    <td>0.002 0.3%</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">X</th>
+                                    <td>BTCUSDT</td>
+                                    <td>46802.03</td>
+                                    <td>0.00022</td>
+                                    <th>48023.00</th>
+                                    <td>45000.03</td>
+                                    <td>0.00023</td>
+                                    <td>0.002 0.3%</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">X</th>
+                                    <td>BTCUSDT</td>
+                                    <td>46802.03</td>
+                                    <td>0.00022</td>
+                                    <th>48023.00</th>
+                                    <td>45000.03</td>
+                                    <td>0.00023</td>
+                                    <td>0.002 0.3%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="order" role="tabpanel" aria-labelledby="order-tab">
+                            <table class="table table-dark jb-small">
+                                <thead>
+                                <tr>
+                                    <th scope="col">취소</th>
+                                    <th scope="col">심볼</th>
+                                    <th scope="col">포지션</th>
+                                    <th scope="col">수량</th>
+                                    <th scope="col">진입가격</th>
+                                    <th scope="col">강제청산가</th>
+                                    <th scope="col">증거금</th>
+                                    <th scope="col">수익</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">X</th>
+                                    <td>BTCUSDT</td>
+                                    <td>46802.03</td>
+                                    <td>0.00022</td>
+                                    <th>48023.00</th>
+                                    <td>45000.03</td>
+                                    <td>0.00023</td>
+                                    <td>0.002 0.3%</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">X</th>
+                                    <td>BTCUSDT</td>
+                                    <td>46802.03</td>
+                                    <td>0.00022</td>
+                                    <th>48023.00</th>
+                                    <td>45000.03</td>
+                                    <td>0.00023</td>
+                                    <td>0.002 0.3%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 jb-small border-start border-secondary">
+                <div class="row py-2" style="background: #444;">
+                    <div class="col-sm-4">Price(USDT)</div>
+                    <div class="col-sm-4">Amout(BTC)</div>
+                    <div class="col-sm-4 text-end">Total</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="box1"></div>
+                    <div class="col-sm-4 bids">......</div>
+                    <div class="col-sm-4 amount">......</div>
+                    <div class="col-sm-4 total">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="box1"></div>
+                    <div class="col-sm-4 bids">......</div>
+                    <div class="col-sm-4 amount">......</div>
+                    <div class="col-sm-4 total">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="box1"></div>
+                    <div class="col-sm-4 bids">......</div>
+                    <div class="col-sm-4 amount">......</div>
+                    <div class="col-sm-4 total">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="box1"></div>
+                    <div class="col-sm-4 bids">......</div>
+                    <div class="col-sm-4 amount">......</div>
+                    <div class="col-sm-4 total">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="box1"></div>
+                    <div class="col-sm-4 bids">......</div>
+                    <div class="col-sm-4 amount">......</div>
+                    <div class="col-sm-4 total">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="box1"></div>
+                    <div class="col-sm-4 bids">......</div>
+                    <div class="col-sm-4 amount">......</div>
+                    <div class="col-sm-4 total">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="box1"></div>
+                    <div class="col-sm-4 bids">......</div>
+                    <div class="col-sm-4 amount">......</div>
+                    <div class="col-sm-4 total">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="box1"></div>
+                    <div class="col-sm-4 bids">......</div>
+                    <div class="col-sm-4 amount">......</div>
+                    <div class="col-sm-4 total">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="box1"></div>
+                    <div class="col-sm-4 bids">......</div>
+                    <div class="col-sm-4 amount">......</div>
+                    <div class="col-sm-4 total">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="box1"></div>
+                    <div class="col-sm-4 bids">......</div>
+                    <div class="col-sm-4 amount">......</div>
+                    <div class="col-sm-4 total">......</div>
+                </div>
+                <div class="row py-2" style="background: #444;">
+                    <div class="col-sm-12 mx-2 jb-large" id="stock-price2">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="box2"></div>
+                    <div class="col-sm-4 asks">......</div>
+                    <div class="col-sm-4 amount1">......</div>
+                    <div class="col-sm-4 total1">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="box2"></div>
+                    <div class="col-sm-4 asks">......</div>
+                    <div class="col-sm-4 amount1">......</div>
+                    <div class="col-sm-4 total1">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="box2"></div>
+                    <div class="col-sm-4 asks">......</div>
+                    <div class="col-sm-4 amount1">......</div>
+                    <div class="col-sm-4 total1">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="box2"></div>
+                    <div class="col-sm-4 asks">......</div>
+                    <div class="col-sm-4 amount1">......</div>
+                    <div class="col-sm-4 total1">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="box2"></div>
+                    <div class="col-sm-4 asks">......</div>
+                    <div class="col-sm-4 amount1">......</div>
+                    <div class="col-sm-4 total1">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="box2"></div>
+                    <div class="col-sm-4 asks">......</div>
+                    <div class="col-sm-4 amount1">......</div>
+                    <div class="col-sm-4 total1">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="box2"></div>
+                    <div class="col-sm-4 asks">......</div>
+                    <div class="col-sm-4 amount1">......</div>
+                    <div class="col-sm-4 total1">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="box2"></div>
+                    <div class="col-sm-4 asks">......</div>
+                    <div class="col-sm-4 amount1">......</div>
+                    <div class="col-sm-4 total1">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="box2"></div>
+                    <div class="col-sm-4 asks">......</div>
+                    <div class="col-sm-4 amount1">......</div>
+                    <div class="col-sm-4 total1">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="box2"></div>
+                    <div class="col-sm-4 asks">......</div>
+                    <div class="col-sm-4 amount1">......</div>
+                    <div class="col-sm-4 total1">......</div>
+                </div>
+                <div class="row py-2" style="background: #444;">
+                    <div class="col-sm-12 mx-2 jb-large">TRADE HISTORY</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="col-sm-4 tPrice">......</div>
+                    <div class="col-sm-4 tAmount">......</div>
+                    <div class="col-sm-4 time">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="col-sm-4 tPrice">......</div>
+                    <div class="col-sm-4 tAmount">......</div>
+                    <div class="col-sm-4 time">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="col-sm-4 tPrice">......</div>
+                    <div class="col-sm-4 tAmount">......</div>
+                    <div class="col-sm-4 time">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="col-sm-4 tPrice">......</div>
+                    <div class="col-sm-4 tAmount">......</div>
+                    <div class="col-sm-4 time">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="col-sm-4 tPrice">......</div>
+                    <div class="col-sm-4 tAmount">......</div>
+                    <div class="col-sm-4 time">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="col-sm-4 tPrice">......</div>
+                    <div class="col-sm-4 tAmount">......</div>
+                    <div class="col-sm-4 time">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="col-sm-4 tPrice">......</div>
+                    <div class="col-sm-4 tAmount">......</div>
+                    <div class="col-sm-4 time">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="col-sm-4 tPrice">......</div>
+                    <div class="col-sm-4 tAmount">......</div>
+                    <div class="col-sm-4 time">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="col-sm-4 tPrice">......</div>
+                    <div class="col-sm-4 tAmount">......</div>
+                    <div class="col-sm-4 time">......</div>
+                </div>
+                <div class="row" style="position: relative">
+                    <div class="col-sm-4 tPrice">......</div>
+                    <div class="col-sm-4 tAmount">......</div>
+                    <div class="col-sm-4 time">......</div>
+                </div>
+            </div>
+            <div class="col-sm-2 border-start border-secondary mx-0">
+                <ul class="nav nav-tabs jb-small text-white bg-dark" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="limit-tab" data-bs-toggle="tab" data-bs-target="#limit"
+                                role="tab" aria-controls="limit" aria-selected="true">지정가</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="market-tab" data-bs-toggle="tab" data-bs-target="#market" role="tab"
+                                aria-controls="market" aria-selected="false">시장가</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="limit" role="tabpanel" aria-labelledby="limit-tab">
+                        <div class="col-sm-12">
+                            <div class="input-group my-3">
+                                <span class="input-group-text jb-small btn-sm">주문가격</span>
+                                <input type="text" id="bPrice" class="form-control jb-small text-end" aria-label="Amount (to the nearest dollar)" value="0">
+                                <span class="input-group-text jb-small">USDT</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group">
+                                <span class="input-group-text jb-small btn-sm">주문수량</span>
+                                <input type="text" id="amount" class="form-control jb-small text-end" aria-label="Amount (to the nearest dollar)" value="0" disabled>
+                                <span class="input-group-text jb-small">USDT</span>
+                            </div>
+                        </div>
 
+                        <div class="row my-4">
+                            <div class="slider">
+                                <input type="range" id="custom-slider" class="form-range" min="0" max="100" step="1" value="0">
+                                <div class="range jb-small">
+                                    <div>0</div>
+                                    <div>25</div>
+                                    <div>50</div>
+                                    <div>75</div>
+                                    <div>100</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group">
+                                <span class="input-group-text jb-small btn-sm">레버리지</span>
+                                <input type="text" id="leverage" class="form-control jb-small text-end" aria-label="Amount (to the nearest dollar)" value="0" disabled>
+                                <span class="input-group-text jb-small">X</span>
+                            </div>
+                        </div>
+                        <div class="row my-4">
+                            <div class="slider">
+                                <input type="range" id="custom-slider1" class="form-range" min="0" max="100" step="1" value="0">
+                                <div class="range jb-small">
+                                    <div>0</div>
+                                    <div>25</div>
+                                    <div>50</div>
+                                    <div>75</div>
+                                    <div>100</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group my-1">
+                                <span class="input-group-text jb-small btn-sm">사용가능</span>
+                                <input type="text" id="available" class="form-control jb-small text-end" aria-label="Amount (to the nearest dollar)" value="500,000" disabled>
+                                <span class="input-group-text jb-small">USDT</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group">
+                                <span class="input-group-text jb-small btn-sm">위탁비용</span>
+                                <input type="text" class="form-control jb-small text-end" aria-label="Amount (to the nearest dollar)" value="500,000" disabled>
+                                <span class="input-group-text jb-small">USDT</span>
+                            </div>
+                        </div>
+                        <div class="row my-3">
+                            <div class="col-6">
+                                <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">LONG</button>
+                            </div>
+                            <div class="col-6">
+                                <button type="button" class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">SHORT</button>
+                            </div>
+                        </div>
 
+                    </div>
+                    <div class="tab-pane fade show" id="market" role="tabpanel" aria-labelledby="market-tab">
+                        <div class="tab-pane fade show" id="limit" role="tabpanel" aria-labelledby="limit-tab">
+                            <div class="row mt-3">
+                                <div class="input-group">
+                                    <span class="input-group-text jb-small btn-sm">주문수량</span>
+                                    <input type="text" id="amount3" class="form-control jb-small text-end" aria-label="Amount (to the nearest dollar)" value="0" disabled>
+                                    <span class="input-group-text jb-small">USDT</span>
+                                </div>
+                            </div>
+
+                            <div class="row my-4">
+                                <div class="slider">
+                                    <input type="range" id="custom-slider3" class="form-range" min="0" max="100" step="1" value="0">
+                                    <div class="range jb-small">
+                                        <div>0</div>
+                                        <div>25</div>
+                                        <div>50</div>
+                                        <div>75</div>
+                                        <div>100</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group">
+                                    <span class="input-group-text jb-small btn-sm">레버리지</span>
+                                    <input type="text" id="leverage4" class="form-control jb-small text-end" aria-label="Amount (to the nearest dollar)" value="0" disabled>
+                                    <span class="input-group-text jb-small">X</span>
+                                </div>
+                            </div>
+                            <div class="row my-4">
+                                <div class="slider">
+                                    <input type="range" id="custom-slider4" class="form-range" min="0" max="100" step="1" value="0">
+                                    <div class="range jb-small">
+                                        <div>0</div>
+                                        <div>25</div>
+                                        <div>50</div>
+                                        <div>75</div>
+                                        <div>100</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group my-1">
+                                    <span class="input-group-text jb-small btn-sm">사용가능</span>
+                                    <input type="text" id="available3" class="form-control jb-small text-end" aria-label="Amount (to the nearest dollar)" value="500,000" disabled>
+                                    <span class="input-group-text jb-small">USDT</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group">
+                                    <span class="input-group-text jb-small btn-sm">위탁비용</span>
+                                    <input type="text" class="form-control jb-small text-end" aria-label="Amount (to the nearest dollar)" value="500,000" disabled>
+                                    <span class="input-group-text jb-small">USDT</span>
+                                </div>
+                            </div>
+                            <div class="row my-3">
+                                <div class="col-6">
+                                    <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">LONG</button>
+                                </div>
+                                <div class="col-6">
+                                    <button type="button" class="btn btn-danger w-100"  data-bs-toggle="modal" data-bs-target="#exampleModalCenter">SHORT</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mx-0">
+                    <div class="row py-2" style="background: #333;">
+                        <div class="col-sm-12 mx-2 jb-large">ASSET</div>
+                    </div>
+
+                    <div class="input-group px-0 my-2">
+                        <span class="input-group-text jb-small btn-sm">계정자산</span>
+                        <input type="text" id="available" class="form-control jb-small text-end" aria-label="Amount (to the nearest dollar)" value="500,000" disabled>
+                        <span class="input-group-text jb-small">USDT</span>
+                    </div>
+
+                    <div class="input-group px-0">
+                        <span class="input-group-text jb-small btn-sm">사용가능</span>
+                        <input type="text" id="available" class="form-control jb-small text-end" aria-label="Amount (to the nearest dollar)" value="500,000" disabled>
+                        <span class="input-group-text jb-small">USDT</span>
+                    </div>
+                    <div class="input-group px-0 my-2">
+                        <span class="input-group-text jb-small btn-sm">증거금</span>
+                        <input type="text" id="available" class="form-control jb-small text-end" aria-label="Amount (to the nearest dollar)" value="500,000" disabled>
+                        <span class="input-group-text jb-small">USDT</span>
+                    </div>
+
+                    <div class="input-group px-0">
+                        <span class="input-group-text jb-small btn-sm">미현실 총 손익</span>
+                        <input type="text" id="available" class="form-control jb-small text-end" aria-label="Amount (to the nearest dollar)" value="500,000" disabled>
+                        <span class="input-group-text jb-small">USDT</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- =======================
+    Main Banner END -->
+</main>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>This is a vertically centered modal.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- =======================
 Footer START -->
 <footer class="pt-5" th:replace="template :: footer">
 </footer>
+
 <!-- =======================
     Footer END -->
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+<script type="text/javascript" src="nexparan.js"></script>
 </body>
 </html>
