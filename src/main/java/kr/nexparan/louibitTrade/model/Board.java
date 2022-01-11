@@ -8,6 +8,8 @@ import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -24,6 +26,8 @@ public class Board {
     private Long id;
 
     @Column(nullable = false, length = 100)
+    @NotNull
+    @Size(min=2, max=40, message="Titles should be between 2 and 40 characters in length.")
     private String title;
 
     @Lob //대용량 데이터
