@@ -1,6 +1,5 @@
 package kr.nexparan.louibitTrade.model;
 
-import com.sun.prism.PixelFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
