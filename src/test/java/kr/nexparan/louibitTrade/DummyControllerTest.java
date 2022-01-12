@@ -16,14 +16,14 @@ public class DummyControllerTest {
 
     @PostMapping("/dummy/join")
     public String join(User user) {
-        System.out.println("id : " + user.getId());
-        System.out.println("username : " + user.getUsername());
-        System.out.println("password : " + user.getPassword());
-        System.out.println("email : " + user.getEmail());
-        System.out.println("role : " + user.getRole());
-        System.out.println("createDate : " + user.getCreateDate());
-        user.setRole(RoleType.USER);
-        userRepository.save(user);
+//        System.out.println("id : " + user.getId());
+//        System.out.println("username : " + user.getUsername());
+//        System.out.println("password : " + user.getPassword());
+//        System.out.println("email : " + user.getEmail());
+//        System.out.println("role : " + user.getRole());
+//        System.out.println("createDate : " + user.getCreateDate());
+//        user.setRole(RoleType.USER);
+//        userRepository.save(user);
         return "회원가입에 성공했습니다.";
     }
 }

@@ -5,6 +5,7 @@ import kr.nexparan.louibitTrade.model.RoleType;
 import kr.nexparan.louibitTrade.model.User;
 import kr.nexparan.louibitTrade.repository.BoardRepository;
 import kr.nexparan.louibitTrade.repository.UserRepository;
+import kr.nexparan.louibitTrade.service.UserService;
 import kr.nexparan.louibitTrade.validator.BoardValidator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,8 @@ public class IndexController {
     private BoardRepository boardRepository;
     @Autowired
     private BoardValidator boardValidator;
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private MessageSource messageSource;
@@ -118,16 +121,9 @@ public class IndexController {
     }
 
     @PostMapping("/signup")
-    public String join(User user) {
-        System.out.println("id : " + user.getId());
-        System.out.println("username : " + user.getUsername());
-        System.out.println("password : " + user.getPassword());
-        System.out.println("email : " + user.getEmail());
-        System.out.println("role : " + user.getRole());
-        System.out.println("createDate : " + user.getCreateDate());
-        user.setRole(RoleType.USER);
-        userRepository.save(user);
-        return "index";
+    public String signup(User user) {
+        userService.save(user);
+        return "redirect:/";
     }
 
     @GetMapping("/forgotpassword")
