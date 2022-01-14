@@ -39,6 +39,7 @@ public class AdminController {
         return "noticeForm";
     }
 
+
     @PostMapping("/noticeForm")
     public String postNoticeForm(@Valid Board board, BindingResult bindingResult) {
         boardValidator.validate(board, bindingResult);
