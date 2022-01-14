@@ -75,7 +75,7 @@
                         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                             <!-- Offcanvas header -->
                             <div class="offcanvas-header bg-light">
-                                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Notice Insert</h5>
+                                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Faq View</h5>
                                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <!-- Offcanvas body -->
@@ -83,7 +83,7 @@
                                 <div class="bg-dark border rounded-3 pb-0 p-3 w-100">
                                     <!-- Dashboard menu -->
                                     <div class="list-group list-group-dark list-group-borderless">
-                                        <a class="list-group-item" href="#" th:href="@{/noticeForm}"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Notice Insert</a>
+                                        <a class="list-group-item" href="#" th:href="@{/noticeView(id=${board.id})}"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Faq View</a>
                                     </div>
                                 </div>
                             </div>
@@ -91,53 +91,65 @@
                     </nav>
                     <!-- Responsive offcanvas body END -->
                 </div>
-                <!-- Right sidebar END -->
 
-                <!-- Main content START -->
                 <div class="col-xl-9">
-                    <!-- Edit profile START -->
-                    <div class="card bg-transparent border rounded-3">
-                        <!-- Card header -->
+                    <!-- Student review START -->
+                    <div class="card border bg-transparent rounded-3">
+                        <!-- Header START -->
                         <div class="card-header bg-transparent border-bottom">
-                            <h3 class="card-header-title mb-0">Notice Insert</h3>
-                        </div>
-                        <!-- Card body START -->
-                        <div class="card-body">
-                            <!-- Form -->
-                            <form class="row g-4 needs-validation" action="#" th:action="@{/noticeForm}" th:object="${board}" method="POST">
-                                <input type="hidden" th:field="*{id}">
+                            <div class="row justify-content-between align-middle">
                                 <!-- Title -->
-                                <div class="col-md-12">
-                                    <label class="form-label">Title</label>
-                                    <div class="input-group">
-                                        <input type="text" id="title" th:classappend="${#fields.hasErrors('title')} ? 'is-invalid'" th:field="*{title}" class="form-control" value="" placeholder="Insert Title">
-                                        <div class="invalid-feedback" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">
-                                            Titles should be between 2 and 40 characters in length.
+                                <div class="col-sm-6">
+                                    <h3 class="card-header-title mb-2 mb-sm-0">Faq View</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Header END -->
+
+                        <!-- Reviews START -->
+                        <div class="card-body mt-2 mt-sm-4">
+
+                            <!-- Review item START -->
+                            <div class="d-sm-flex">
+                                <!-- Avatar image -->
+                                <img class="avatar avatar-lg rounded-circle float-start me-3" src="assets/images/avatar/01.jpg" alt="avatar">
+                                <div class="row">
+                                    <div class="mb-3 d-sm-flex justify-content-sm-between align-items-center">
+                                        <!-- Title -->
+                                        <div>
+                                            <h5 class="m-0">Frances Guerrero</h5>
+                                            <span class="me-3 small">June 11, 2021 at 6:01 am </span>
                                         </div>
                                     </div>
-                                </div>
 
-                                <!-- Content -->
-                                <div class="col-12">
-                                    <label class="form-label">Content</label>
-                                    <textarea class="form-control" id="content" th:classappend="${#fields.hasErrors('content')} ? 'is-invalid'" th:field="*{content}" rows="10"></textarea>
-                                    <div class="invalid-feedback" th:if="${#fields.hasErrors('content')}" th:errors="*{content}">
-                                        Content should be between 2 and 40 characters in length.
+                                    <!-- Content -->
+                                    <h6><span class="text-body fw-light">Title on : </span><span th:text="${board.title}">How to implement sitemap on sass</span></h6>
+                                    <p th:text="${#strings.replace(${board.content}, newLineChar, '&lt;br /&gt;'">Satisfied conveying a dependent contented he gentleman agreeable do be. Warrant private blushes removed an in equally totally if. Delivered dejection necessary objection do Mr prevailed. Mr feeling does chiefly cordial in do. </p>
+
+                                    <!-- Button -->
+                                    <div class="text-end">
+                                        <a href="#" class="btn btn-sm btn-primary-soft mb-1 mb-sm-0">Direct message</a>
+                                        <a class="btn btn-sm btn-light mb-0" data-bs-toggle="collapse" href="#collapseComment" role="button" aria-expanded="false" aria-controls="collapseComment">
+                                            Reply
+                                        </a>
+                                        <!-- collapse textarea -->
+                                        <div class="collapse show" id="collapseComment">
+                                            <div class="d-flex mt-3">
+                                                <textarea class="form-control mb-0" placeholder="Add a comment..." rows="2" spellcheck="false"></textarea>
+                                                <button class="btn btn-sm btn-primary-soft ms-2 px-4 mb-0 flex-shrink-0"><i class="fas fa-paper-plane fs-5"></i></button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="form-text">Describe content</div>
-
+                                    <div class="text-end">
+                                        <a class="btn btn-sm btn-primary mt-3" th:href="@{/notice}">
+                                            Back
+                                        </a>
+                                    </div>
                                 </div>
-
-                                <!-- Save button -->
-                                <div class="d-sm-flex justify-content-end">
-                                    <a type="button" class="btn btn-primary mb-0 mx-1" th:href="@{/notice}">Cancel</a>
-                                    <button type="submit" class="btn btn-primary mb-0">Save Notice</button>
-                                </div>
-                            </form>
+                            </div>
                         </div>
-                        <!-- Card body END -->
                     </div>
-                    <!-- Edit profile END -->
+                    <!-- Student review END -->
                 </div>
                 <!-- Main content END -->
             </div><!-- Row END -->
@@ -158,6 +170,6 @@ Footer START -->
 </footer>
 <!-- =======================
     Footer END -->
-<script type="text/javascript" src="validation.js"></script>
+
 </body>
 </html>

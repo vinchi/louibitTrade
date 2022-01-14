@@ -97,107 +97,715 @@
                 <div class="col-xl-9">
 
                     <!-- Payment method START -->
-                    <div class="card bg-transparent mb-4 z-index-9">
-                        <ul class="nav nav-tabs">
-                            <li class="nav-item" id="deposit-tab" data-bs-toggle="tab" data-bs-target="#deposit" role="tab" aria-controls="deposit" aria-selected="true">
-                                <a class="nav-link active" aria-current="page" href="#">Deposit</a>
+                    <div class="card bg-transparent mb-2 z-index-9">
+                        <ul class="nav nav-tabs mb-3" id="ex1" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" id="deposit-tab" data-bs-toggle="tab" data-bs-target="#deposit" role="tab" aria-controls="deposit" aria-selected="true">Deposit</a>
                             </li>
-                            <li class="nav-item" id="withdraw-tab" data-bs-toggle="tab" data-bs-target="#withdraw" role="tab" aria-controls="withdraw" aria-selected="true">
-                                <a class="nav-link" href="#">Withdraw</a>
+                            <li class="nav-item">
+                                <a class="nav-link" id="withdraw-tab" data-bs-toggle="tab" data-bs-target="#withdraw" role="tab" aria-controls="withdraw" aria-selected="true">Withdraw</a>
                             </li>
-                            <li class="nav-item" id="wallet-tab" data-bs-toggle="tab" data-bs-target="#wallet" role="tab" aria-controls="wallet" aria-selected="true">
-                                <a class="nav-link" href="#">Wallet</a>
+                            <li class="nav-item" >
+                                <a class="nav-link" id="wallet-tab" data-bs-toggle="tab" data-bs-target="#wallet" role="tab" aria-controls="wallet" aria-selected="true">Wallet</a>
                             </li>
-                            <li class="nav-item" id="exchange-tab" data-bs-toggle="tab" data-bs-target="#exchange" role="tab" aria-controls="exchange" aria-selected="true">
-                                <a class="nav-link">Exchange</a>
+                            <li class="nav-item">
+                                <a class="nav-link" id="exchange-tab" data-bs-toggle="tab" data-bs-target="#exchange" role="tab" aria-controls="exchange" aria-selected="true">Exchange</a>
                             </li>
-                            <li class="nav-item" id="futures-tab" data-bs-toggle="tab" data-bs-target="#futures" role="tab" aria-controls="futures" aria-selected="true">
-                                <a class="nav-link">Futures Exchange</a>
+                            <li class="nav-item">
+                                <a class="nav-link" id="futures-tab" data-bs-toggle="tab" data-bs-target="#futures" role="tab" aria-controls="futures" aria-selected="true">Futures Exchange</a>
                             </li>
-                            <li class="nav-item" id="list-tab" data-bs-toggle="tab" data-bs-target="#list" role="tab" aria-controls="list" aria-selected="true">
-                                <a class="nav-link">Withdraw List</a>
+                            <li class="nav-item">
+                                <a class="nav-link" id="list-tab" data-bs-toggle="tab" data-bs-target="#list" role="tab" aria-controls="list" aria-selected="true">Withdraw List</a>
                             </li>
                         </ul>
-                        <!-- Card body START -->
-                        <div class="card-body">
-                            <div class="row g-4">
-                                <div class="col-12">
-                                    <div class="accordion accordion-circle" id="accordioncircle">
-                                        <!-- Credit or debit card START -->
-                                        <div class="accordion-item mb-3">
-                                            <h6 class="accordion-header font-base" id="heading-1">
-                                                <button class="accordion-button bg-white rounded collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
-                                                    Credit or Debit Card
-                                                </button>
-                                            </h6>
-                                            <div id="collapse-1" class="accordion-collapse collapse show" aria-labelledby="heading-1" data-bs-parent="#accordioncircle">
-                                                <!-- Accordion body -->
-                                                <div class="accordion-body">
-                                                    <!-- Form START -->
-                                                    <form class="row text-start g-3">
-                                                        <!-- Card number -->
-                                                        <div class="col-12">
-                                                            <label class="form-label">Card Number <span class="text-danger">*</span></label>
-                                                            <div class="position-relative">
-                                                                <input type="text" class="form-control" placeholder="xxxx xxxx xxxx xxxx">
-                                                                <img src="assets/images/client/visa.svg" class="w-40px position-absolute top-50 end-0 translate-middle-y me-2 d-none d-sm-block" alt="">
-                                                            </div>
-                                                        </div>
-                                                        <!-- Expiration Date -->
-                                                        <div class="col-md-6">
-                                                            <label class="form-label">Expiration date <span class="text-danger">*</span></label>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control" maxlength="2" placeholder="Month">
-                                                                <input type="text" class="form-control" maxlength="4" placeholder="Year">
-                                                            </div>
-                                                        </div>
-                                                        <!--Cvv code  -->
-                                                        <div class="col-md-6">
-                                                            <label class="form-label">CVV / CVC <span class="text-danger">*</span></label>
-                                                            <input type="text" class="form-control" maxlength="3" placeholder="xxx">
-                                                        </div>
-                                                        <!-- Card name -->
-                                                        <div class="col-12">
-                                                            <label class="form-label">Name on Card <span class="text-danger">*</span></label>
-                                                            <input type="text" class="form-control" aria-label="name of card holder" placeholder="Enter name">
-                                                        </div>
-                                                    </form>
-                                                    <!-- Form END -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Credit or debit card END -->
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="deposit" role="tabpanel" aria-labelledby="deposit-tab">
+                                <!-- Card body START -->
+                                <div class="card-body">
+                                    <div class="row g-4">
+                                        <div class="col-12">
+                                            <div class="accordion accordion-circle" id="accordioncircle">
+                                                <!-- Credit or debit card START -->
+                                                <div class="accordion-item mb-3">
+                                                    <h6 class="accordion-header font-base" id="heading-1">
+                                                        <button class="accordion-button bg-white rounded collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
+                                                            BTC
+                                                        </button>
+                                                    </h6>
+                                                    <div id="collapse-1" class="accordion-collapse collapse show" aria-labelledby="heading-1" data-bs-parent="#accordioncircle">
+                                                        <!-- Accordion body -->
+                                                        <div class="accordion-body">
+                                                            <!-- Form START -->
+                                                            <form class="row text-start g-3">
+                                                                <!-- Card number -->
+                                                                <div class="col-4">
+                                                                    <label class="form-label">Available<span class="text-danger">*</span></label>
+                                                                    <div class="position-relative">
+                                                                        <input type="text" class="form-control" placeholder="xxxx xxxx xxxx xxxx">
+                                                                        <img src="assets/images/client/visa.svg" class="w-40px position-absolute top-50 end-0 translate-middle-y me-2 d-none d-sm-block" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <label class="form-label">In Use<span class="text-danger">*</span></label>
+                                                                    <div class="position-relative">
+                                                                        <input type="text" class="form-control" placeholder="xxxx xxxx xxxx xxxx">
+                                                                        <img src="assets/images/client/visa.svg" class="w-40px position-absolute top-50 end-0 translate-middle-y me-2 d-none d-sm-block" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <label class="form-label">Balance<span class="text-danger">*</span></label>
+                                                                    <div class="position-relative">
+                                                                        <input type="text" class="form-control" placeholder="xxxx xxxx xxxx xxxx">
+                                                                        <img src="assets/images/client/visa.svg" class="w-40px position-absolute top-50 end-0 translate-middle-y me-2 d-none d-sm-block" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <!-- Expiration Date -->
+                                                                <div class="col-md-12">
+                                                                    <label class="form-label">Deposit Address<span class="text-danger">*</span></label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" value="19yGKFXTNX4cKL7gp7odhzt2AMZtM6KTJg">
+                                                                        <span><i class="fas fa-copy"></i></span>
+                                                                    </div>
+                                                                </div>
 
-                                        <!-- Net banking START -->
-                                        <div class="accordion-item mb-3">
-                                            <h6 class="accordion-header font-base" id="heading-2">
-                                                <button class="accordion-button collapsed bg-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
-                                                    Pay with Net Banking
-                                                </button>
-                                            </h6>
-                                            <div id="collapse-2" class="accordion-collapse collapse" aria-labelledby="heading-2" data-bs-parent="#accordioncircle">
-                                                <!-- Accordion body -->
-                                                <div class="accordion-body">
-                                                    <!-- Form START -->
-                                                    <form class="row text-start g-3">
-                                                        <p class="mb-1">In order to complete your transaction, we will transfer you over to Eduport secure servers.</p>
-                                                        <p class="my-0">Select your bank from the drop-down list and click proceed to continue with your payment.</p>
-                                                        <!-- Select bank -->
-                                                        <div class="col-md-6">
-                                                            <div class="choices" data-type="select-one" tabindex="0" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false"><div class="choices__inner"><select class="form-select form-select-sm js-choice border-0 choices__input" aria-label=".form-select-sm" hidden="" tabindex="-1" data-choice="active"><option value="" data-custom-properties="[object Object]">Please choose one</option></select><div class="choices__list choices__list--single"><div class="choices__item choices__placeholder choices__item--selectable" data-item="" data-id="1" data-value="" data-custom-properties="[object Object]" aria-selected="true">Please choose one</div></div></div><div class="choices__list choices__list--dropdown" aria-expanded="false"><input type="text" class="choices__input choices__input--cloned" autocomplete="off" autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list" aria-label="Please choose one" placeholder=""><div class="choices__list" role="listbox"><div id="choices--fh5x-item-choice-4" class="choices__item choices__item--choice is-selected choices__placeholder choices__item--selectable is-highlighted" role="option" data-choice="" data-id="4" data-value="" data-select-text="Press to select" data-choice-selectable="" aria-selected="true">Please choose one</div><div id="choices--fh5x-item-choice-1" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="1" data-value="Bank of America" data-select-text="Press to select" data-choice-selectable="">Bank of America</div><div id="choices--fh5x-item-choice-2" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="2" data-value="Bank of India" data-select-text="Press to select" data-choice-selectable="">Bank of India</div><div id="choices--fh5x-item-choice-3" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="3" data-value="Bank of London" data-select-text="Press to select" data-choice-selectable="">Bank of London</div></div></div></div>
+                                                                <!-- Card name -->
+                                                                <div class="col-12">
+                                                                    <label class="form-label">Guide<span class="text-danger">*</span></label>
+                                                                    <div>
+                                                                        - Please do not deposit any assets other than BTC to the above address. Non- BTCassets cannot be found.<br>
+                                                                        - Deposit to this address and once the transfer is complete, you will have to wait for the network confirmation to arrive.<br>
+                                                                        - Be sure to check your computer and browser security to prevent personal information from being leaked<br>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                            <!-- Form END -->
                                                         </div>
-                                                    </form>
-                                                    <!-- Form END -->
+                                                    </div>
                                                 </div>
+                                                <!-- Credit or debit card END -->
+
+                                                <!-- Net banking START -->
+                                                <!-- Credit or debit card START -->
+                                                <div class="accordion-item mb-3">
+                                                    <h6 class="accordion-header font-base" id="heading-2">
+                                                        <button class="accordion-button bg-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="false" aria-controls="collapse-1">
+                                                            USDT
+                                                        </button>
+                                                    </h6>
+                                                    <div id="collapse-2" class="accordion-collapse collapse" aria-labelledby="heading-2" data-bs-parent="#accordioncircle">
+                                                        <!-- Accordion body -->
+                                                        <div class="accordion-body">
+                                                            <!-- Form START -->
+                                                            <form class="row text-start g-3">
+                                                                <!-- Card number -->
+                                                                <div class="col-4">
+                                                                    <label class="form-label">Available<span class="text-danger">*</span></label>
+                                                                    <div class="position-relative">
+                                                                        <input type="text" class="form-control" placeholder="xxxx xxxx xxxx xxxx">
+                                                                        <img src="assets/images/client/visa.svg" class="w-40px position-absolute top-50 end-0 translate-middle-y me-2 d-none d-sm-block" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <label class="form-label">In Use<span class="text-danger">*</span></label>
+                                                                    <div class="position-relative">
+                                                                        <input type="text" class="form-control" placeholder="xxxx xxxx xxxx xxxx">
+                                                                        <img src="assets/images/client/visa.svg" class="w-40px position-absolute top-50 end-0 translate-middle-y me-2 d-none d-sm-block" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <label class="form-label">Balance<span class="text-danger">*</span></label>
+                                                                    <div class="position-relative">
+                                                                        <input type="text" class="form-control" placeholder="xxxx xxxx xxxx xxxx">
+                                                                        <img src="assets/images/client/visa.svg" class="w-40px position-absolute top-50 end-0 translate-middle-y me-2 d-none d-sm-block" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <!-- Expiration Date -->
+                                                                <div class="col-md-12">
+                                                                    <label class="form-label">Deposit Address<span class="text-danger">*</span></label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" value="19yGKFXTNX4cKL7gp7odhzt2AMZtM6KTJg">
+                                                                        <span><i class="fas fa-copy"></i></span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Card name -->
+                                                                <div class="col-12">
+                                                                    <label class="form-label">Guide<span class="text-danger">*</span></label>
+                                                                    <div>
+                                                                        - Please do not deposit any assets other than BTC to the above address. Non- BTCassets cannot be found.<br>
+                                                                        - Deposit to this address and once the transfer is complete, you will have to wait for the network confirmation to arrive.<br>
+                                                                        - Be sure to check your computer and browser security to prevent personal information from being leaked<br>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                            <!-- Form END -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Credit or debit card END -->
+                                                <!-- Credit or debit card START -->
+                                                <div class="accordion-item mb-3">
+                                                    <h6 class="accordion-header font-base" id="heading-3">
+                                                        <button class="accordion-button bg-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-3" aria-expanded="false" aria-controls="collapse-1">
+                                                            ETH
+                                                        </button>
+                                                    </h6>
+                                                    <div id="collapse-3" class="accordion-collapse collapse" aria-labelledby="heading-3" data-bs-parent="#accordioncircle">
+                                                        <!-- Accordion body -->
+                                                        <div class="accordion-body">
+                                                            <!-- Form START -->
+                                                            <form class="row text-start g-3">
+                                                                <!-- Card number -->
+                                                                <div class="col-4">
+                                                                    <label class="form-label">Available<span class="text-danger">*</span></label>
+                                                                    <div class="position-relative">
+                                                                        <input type="text" class="form-control" placeholder="xxxx xxxx xxxx xxxx">
+                                                                        <img src="assets/images/client/visa.svg" class="w-40px position-absolute top-50 end-0 translate-middle-y me-2 d-none d-sm-block" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <label class="form-label">In Use<span class="text-danger">*</span></label>
+                                                                    <div class="position-relative">
+                                                                        <input type="text" class="form-control" placeholder="xxxx xxxx xxxx xxxx">
+                                                                        <img src="assets/images/client/visa.svg" class="w-40px position-absolute top-50 end-0 translate-middle-y me-2 d-none d-sm-block" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <label class="form-label">Balance<span class="text-danger">*</span></label>
+                                                                    <div class="position-relative">
+                                                                        <input type="text" class="form-control" placeholder="xxxx xxxx xxxx xxxx">
+                                                                        <img src="assets/images/client/visa.svg" class="w-40px position-absolute top-50 end-0 translate-middle-y me-2 d-none d-sm-block" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <!-- Expiration Date -->
+                                                                <div class="col-md-12">
+                                                                    <label class="form-label">Deposit Address<span class="text-danger">*</span></label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" value="19yGKFXTNX4cKL7gp7odhzt2AMZtM6KTJg">
+                                                                        <span><i class="fas fa-copy"></i></span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Card name -->
+                                                                <div class="col-12">
+                                                                    <label class="form-label">Guide<span class="text-danger">*</span></label>
+                                                                    <div>
+                                                                        - Please do not deposit any assets other than BTC to the above address. Non- BTCassets cannot be found.<br>
+                                                                        - Deposit to this address and once the transfer is complete, you will have to wait for the network confirmation to arrive.<br>
+                                                                        - Be sure to check your computer and browser security to prevent personal information from being leaked<br>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                            <!-- Form END -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Credit or debit card END -->
+                                                <!-- Credit or debit card START -->
+                                                <div class="accordion-item mb-3">
+                                                    <h6 class="accordion-header font-base" id="heading-4">
+                                                        <button class="accordion-button bg-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-4" aria-expanded="false" aria-controls="collapse-1">
+                                                            XRP
+                                                        </button>
+                                                    </h6>
+                                                    <div id="collapse-4" class="accordion-collapse collapse" aria-labelledby="heading-4" data-bs-parent="#accordioncircle">
+                                                        <!-- Accordion body -->
+                                                        <div class="accordion-body">
+                                                            <!-- Form START -->
+                                                            <form class="row text-start g-3">
+                                                                <!-- Card number -->
+                                                                <div class="col-4">
+                                                                    <label class="form-label">Available<span class="text-danger">*</span></label>
+                                                                    <div class="position-relative">
+                                                                        <input type="text" class="form-control" placeholder="xxxx xxxx xxxx xxxx">
+                                                                        <img src="assets/images/client/visa.svg" class="w-40px position-absolute top-50 end-0 translate-middle-y me-2 d-none d-sm-block" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <label class="form-label">In Use<span class="text-danger">*</span></label>
+                                                                    <div class="position-relative">
+                                                                        <input type="text" class="form-control" placeholder="xxxx xxxx xxxx xxxx">
+                                                                        <img src="assets/images/client/visa.svg" class="w-40px position-absolute top-50 end-0 translate-middle-y me-2 d-none d-sm-block" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <label class="form-label">Balance<span class="text-danger">*</span></label>
+                                                                    <div class="position-relative">
+                                                                        <input type="text" class="form-control" placeholder="xxxx xxxx xxxx xxxx">
+                                                                        <img src="assets/images/client/visa.svg" class="w-40px position-absolute top-50 end-0 translate-middle-y me-2 d-none d-sm-block" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <!-- Expiration Date -->
+                                                                <div class="col-md-12">
+                                                                    <label class="form-label">Deposit Address<span class="text-danger">*</span></label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" value="19yGKFXTNX4cKL7gp7odhzt2AMZtM6KTJg">
+                                                                        <span><i class="fas fa-copy"></i></span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Card name -->
+                                                                <div class="col-12">
+                                                                    <label class="form-label">Guide<span class="text-danger">*</span></label>
+                                                                    <div>
+                                                                        - Please do not deposit any assets other than BTC to the above address. Non- BTCassets cannot be found.<br>
+                                                                        - Deposit to this address and once the transfer is complete, you will have to wait for the network confirmation to arrive.<br>
+                                                                        - Be sure to check your computer and browser security to prevent personal information from being leaked<br>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                            <!-- Form END -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Credit or debit card END -->
+                                                <!-- Credit or debit card START -->
+                                                <div class="accordion-item mb-3">
+                                                    <h6 class="accordion-header font-base" id="heading-5">
+                                                        <button class="accordion-button bg-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-5" aria-expanded="false" aria-controls="collapse-1">
+                                                            TRX
+                                                        </button>
+                                                    </h6>
+                                                    <div id="collapse-5" class="accordion-collapse collapse" aria-labelledby="heading-5" data-bs-parent="#accordioncircle">
+                                                        <!-- Accordion body -->
+                                                        <div class="accordion-body">
+                                                            <!-- Form START -->
+                                                            <form class="row text-start g-3">
+                                                                <!-- Card number -->
+                                                                <div class="col-4">
+                                                                    <label class="form-label">Available<span class="text-danger">*</span></label>
+                                                                    <div class="position-relative">
+                                                                        <input type="text" class="form-control" placeholder="xxxx xxxx xxxx xxxx">
+                                                                        <img src="assets/images/client/visa.svg" class="w-40px position-absolute top-50 end-0 translate-middle-y me-2 d-none d-sm-block" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <label class="form-label">In Use<span class="text-danger">*</span></label>
+                                                                    <div class="position-relative">
+                                                                        <input type="text" class="form-control" placeholder="xxxx xxxx xxxx xxxx">
+                                                                        <img src="assets/images/client/visa.svg" class="w-40px position-absolute top-50 end-0 translate-middle-y me-2 d-none d-sm-block" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <label class="form-label">Balance<span class="text-danger">*</span></label>
+                                                                    <div class="position-relative">
+                                                                        <input type="text" class="form-control" placeholder="xxxx xxxx xxxx xxxx">
+                                                                        <img src="assets/images/client/visa.svg" class="w-40px position-absolute top-50 end-0 translate-middle-y me-2 d-none d-sm-block" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <!-- Expiration Date -->
+                                                                <div class="col-md-12">
+                                                                    <label class="form-label">Deposit Address<span class="text-danger">*</span></label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" value="19yGKFXTNX4cKL7gp7odhzt2AMZtM6KTJg">
+                                                                        <span><i class="fas fa-copy"></i></span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Card name -->
+                                                                <div class="col-12">
+                                                                    <label class="form-label">Guide<span class="text-danger">*</span></label>
+                                                                    <div>
+                                                                        - Please do not deposit any assets other than BTC to the above address. Non- BTCassets cannot be found.<br>
+                                                                        - Deposit to this address and once the transfer is complete, you will have to wait for the network confirmation to arrive.<br>
+                                                                        - Be sure to check your computer and browser security to prevent personal information from being leaked<br>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                            <!-- Form END -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Credit or debit card END -->
                                             </div>
                                         </div>
-                                        <!-- Net banking END -->
                                     </div>
                                 </div>
                             </div>
+                            <div class="tab-pane" id="withdraw" role="tabpanel" aria-labelledby="withdraw-tab">
+                                <!-- Card body START -->
+                                <div class="card-body">
+                                    <div class="row g-4">
+                                        <div class="col-12">
+                                            <div class="accordion accordion-circle" id="accordioncircle-2">
+                                                <!-- Credit or debit card START -->
+                                                <div class="accordion-item mb-3">
+                                                    <h6 class="accordion-header font-base" id="withdraw-11">
+                                                        <button class="accordion-button bg-white rounded collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-11" aria-expanded="true" aria-controls="collapse-11">
+                                                            BTC
+                                                        </button>
+                                                    </h6>
+                                                    <div id="collapse-11" class="accordion-collapse collapse show" aria-labelledby="heading-11" data-bs-parent="#accordioncircle-2">
+                                                        <!-- Accordion body -->
+                                                        <div class="accordion-body">
+                                                            <!-- Card number -->
+                                                            <div class="col-12">
+                                                                <label class="form-label">Withdrawal Address<span class="text-danger">*</span></label>
+                                                                <div class="position-relative">
+                                                                    <input type="text" class="form-control" placeholder="Please enter your withtrawal address.">
+                                                                </div>
+                                                            </div>
+                                                            <!-- Expiration Date -->
+                                                            <div class="col-md-12">
+                                                                <label class="form-label">Withdrawal Amount<span class="text-danger">*</span></label>
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control" placeholder="Please enter your withtrawal amount.">
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Card name -->
+                                                            <div class="col-12">
+                                                                <label class="form-label">Available<span class="text-danger">*</span></label>
+                                                                <div>
+                                                                    <span>Avaiable : 0.0000000BTC</span><span>Min Amount : 0.0000000BTC</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Credit or debit card END -->
+
+                                                <!-- Net banking START -->
+                                                <!-- Credit or debit card START -->
+                                                <div class="accordion-item mb-3">
+                                                    <h6 class="accordion-header font-base" id="withdraw-22">
+                                                        <button class="accordion-button bg-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-22" aria-expanded="false" aria-controls="collapse-22">
+                                                            USDT
+                                                        </button>
+                                                    </h6>
+                                                    <div id="collapse-22" class="accordion-collapse collapse" aria-labelledby="heading-22" data-bs-parent="#accordioncircle-2">
+                                                        <!-- Accordion body -->
+                                                        <div class="accordion-body">
+                                                            <!-- Card number -->
+                                                            <div class="col-12">
+                                                                <label class="form-label">Withdrawal Address<span class="text-danger">*</span></label>
+                                                                <div class="position-relative">
+                                                                    <input type="text" class="form-control" placeholder="Please enter your withtrawal address.">
+                                                                </div>
+                                                            </div>
+                                                            <!-- Expiration Date -->
+                                                            <div class="col-md-12">
+                                                                <label class="form-label">Withdrawal Amount<span class="text-danger">*</span></label>
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control" placeholder="Please enter your withtrawal amount.">
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Card name -->
+                                                            <div class="col-12">
+                                                                <label class="form-label">Available<span class="text-danger">*</span></label>
+                                                                <div>
+                                                                    <span>Avaiable : 0.0000000BTC</span><span>Min Amount : 0.0000000BTC</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Credit or debit card END -->
+                                                <!-- Credit or debit card START -->
+                                                <div class="accordion-item mb-3">
+                                                    <h6 class="accordion-header font-base" id="withdraw-3">
+                                                        <button class="accordion-button bg-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-33" aria-expanded="false" aria-controls="collapse-33">
+                                                            ETH
+                                                        </button>
+                                                    </h6>
+                                                    <div id="collapse-33" class="accordion-collapse collapse" aria-labelledby="heading-33" data-bs-parent="#accordioncircle-2">
+                                                        <!-- Accordion body -->
+                                                        <div class="accordion-body">
+                                                            <!-- Card number -->
+                                                            <div class="col-12">
+                                                                <label class="form-label">Withdrawal Address<span class="text-danger">*</span></label>
+                                                                <div class="position-relative">
+                                                                    <input type="text" class="form-control" placeholder="Please enter your withtrawal address.">
+                                                                </div>
+                                                            </div>
+                                                            <!-- Expiration Date -->
+                                                            <div class="col-md-12">
+                                                                <label class="form-label">Withdrawal Amount<span class="text-danger">*</span></label>
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control" placeholder="Please enter your withtrawal amount.">
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Card name -->
+                                                            <div class="col-12">
+                                                                <label class="form-label">Available<span class="text-danger">*</span></label>
+                                                                <div>
+                                                                    <span>Avaiable : 0.0000000BTC</span><span>Min Amount : 0.0000000BTC</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Credit or debit card END -->
+                                                <!-- Credit or debit card START -->
+                                                <div class="accordion-item mb-3">
+                                                    <h6 class="accordion-header font-base" id="withdraw-44">
+                                                        <button class="accordion-button bg-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-44" aria-expanded="false" aria-controls="collapse-44">
+                                                            XRP
+                                                        </button>
+                                                    </h6>
+                                                    <div id="collapse-44" class="accordion-collapse collapse" aria-labelledby="heading-44" data-bs-parent="#accordioncircle-2">
+                                                        <!-- Accordion body -->
+                                                        <div class="accordion-body">
+                                                            <!-- Card number -->
+                                                            <div class="col-12">
+                                                                <label class="form-label">Withdrawal Address<span class="text-danger">*</span></label>
+                                                                <div class="position-relative">
+                                                                    <input type="text" class="form-control" placeholder="Please enter your withtrawal address.">
+                                                                </div>
+                                                            </div>
+                                                            <!-- Expiration Date -->
+                                                            <div class="col-md-12">
+                                                                <label class="form-label">Withdrawal Amount<span class="text-danger">*</span></label>
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control" placeholder="Please enter your withtrawal amount.">
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Card name -->
+                                                            <div class="col-12">
+                                                                <label class="form-label">Available<span class="text-danger">*</span></label>
+                                                                <div>
+                                                                    <span>Avaiable : 0.0000000BTC</span><span>Min Amount : 0.0000000BTC</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Credit or debit card END -->
+                                                <!-- Credit or debit card START -->
+                                                <div class="accordion-item mb-3">
+                                                    <h6 class="accordion-header font-base" id="withdraw-5">
+                                                        <button class="accordion-button bg-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-55" aria-expanded="false" aria-controls="collapse-55">
+                                                            TRX
+                                                        </button>
+                                                    </h6>
+                                                    <div id="collapse-55" class="accordion-collapse collapse" aria-labelledby="heading-55" data-bs-parent="#accordioncircle-2">
+                                                        <!-- Accordion body -->
+                                                        <div class="accordion-body">
+                                                            <!-- Card number -->
+                                                            <div class="col-12">
+                                                                <label class="form-label">Withdrawal Address<span class="text-danger">*</span></label>
+                                                                <div class="position-relative">
+                                                                    <input type="text" class="form-control" placeholder="Please enter your withtrawal address.">
+                                                                </div>
+                                                            </div>
+                                                            <!-- Expiration Date -->
+                                                            <div class="col-md-12">
+                                                                <label class="form-label">Withdrawal Amount<span class="text-danger">*</span></label>
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control" placeholder="Please enter your withtrawal amount.">
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Card name -->
+                                                            <div class="col-12">
+                                                                <label class="form-label">Available<span class="text-danger">*</span></label>
+                                                                <div>
+                                                                    <span>Avaiable : 0.0000000BTC</span><span>Min Amount : 0.0000000BTC</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Credit or debit card END -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="wallet" role="tabpanel" aria-labelledby="wallet-tab">
+                                <!-- Student list table START -->
+                                <div class="table-responsive border-0">
+                                    <table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
+                                        <!-- Table head -->
+                                        <thead>
+                                        <tr>
+                                            <th scope="col" class="border-0 rounded-start">Time</th>
+                                            <th scope="col" class="border-0">Coin</th>
+                                            <th scope="col" class="border-0">Classification</th>
+                                            <th scope="col" class="border-0">Quantity</th>
+                                            <th scope="col" class="border-0">TX</th>
+                                            <th scope="col" class="border-0 rounded-end">State</th>
+                                        </tr>
+                                        </thead>
+
+                                        <!-- Table body START -->
+                                        <tbody>
+                                        <!-- Table item -->
+                                        <tr><!-- th:each="board : ${boards}"> -->
+                                            <!-- Table data -->
+                                            <td> <!-- th:text="${board.id}"> -->
+                                                2122-04-14
+                                            </td>
+
+                                            <!-- Table data -->
+                                            <td class="text-center text-sm-start">
+<!--                                                <a th:text="${board.title}" th:href="@{/noticeView(id=${board.id})}"></a>-->
+                                                0.0000000BTC
+                                            </td>
+
+                                            <!-- Table data -->
+                                            <td>
+                                                Outcoin
+                                            </td>
+
+                                            <!-- Table data -->
+                                            <td> <!-- th:text="${board.createDate}"> -->
+                                                0000000BTC
+                                            </td>
+
+                                            <!-- Table data -->
+                                            <td> <!-- th:text="${board.count}"> -->
+                                                0.0000000BTC
+                                            </td>
+                                            <td> <!-- th:text="${board.count}"> -->
+                                                OK!
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                        <!-- Table body END -->
+                                    </table>
+                                </div>
+                                <!-- Student list table END -->
+                            </div>
+                            <div class="tab-pane" id="exchange" role="tabpanel" aria-labelledby="exchange-tab">
+                                <div class="row g-2">
+                                    <div class="col-md-5">
+                                        <div class="form-floating">
+                                            <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+                                                <option value="1">BTC</option>
+                                                <option value="2">XRP</option>
+                                                <option value="3">TRX</option>
+                                                <option value="4">ETH</option>
+                                            </select>
+                                            <label for="floatingSelectGrid">Coin Exchange</label>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-floating">
+                                            <label for="floatingInputGrid">➔</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="floatingInputGrid" placeholder="USD Spot">
+                                            <label for="floatingInputGrid">USD Spot</label>
+                                        </div>
+                                    </div>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <div class="col-md-12">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1">Conversion Amount</span>
+                                            <input type="text" class="form-control" placeholder="0.0000000" aria-label="Username" aria-describedby="basic-addon1">
+                                        </div>
+                                    </div>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <span>USDT</span><span>0.0000000USDT</span>
+                                    <button type="button" class="btn btn-info">To Exchange</button>
+
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="futures" role="tabpanel" aria-labelledby="futures-tab">
+                                <div class="row g-2">
+                                    <div class="col-md-5">
+                                        <div class="form-floating">
+                                            <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+                                                <option value="1">BTC</option>
+                                                <option value="2">XRP</option>
+                                                <option value="3">TRX</option>
+                                                <option value="4">ETH</option>
+                                            </select>
+                                            <label for="floatingSelectGrid">Coin Exchange</label>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-floating">
+                                            <label for="floatingInputGrid">➔</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="floatingInputGrid" placeholder="USD Spot">
+                                            <label for="floatingInputGrid">USD Spot</label>
+                                        </div>
+                                    </div>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <div class="col-md-12">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon2">Conversion Amount</span>
+                                            <input type="text" class="form-control" placeholder="0.0000000" aria-label="Username" aria-describedby="basic-addon2">
+                                        </div>
+                                    </div>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <span>USDT</span><span>0.0000000USDT</span>
+                                    <button type="button" class="btn btn-info">To Exchange</button>
+
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="list" role="tabpanel" aria-labelledby="list-tab">
+                                <!-- Student list table START -->
+                                <div class="table-responsive border-0">
+                                    <table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
+                                        <!-- Table head -->
+                                        <thead>
+                                        <tr>
+                                            <th scope="col" class="border-0 rounded-start">Time</th>
+                                            <th scope="col" class="border-0">Coin</th>
+                                            <th scope="col" class="border-0">Classification</th>
+                                            <th scope="col" class="border-0">Quantity</th>
+                                            <th scope="col" class="border-0">TX</th>
+                                            <th scope="col" class="border-0 rounded-end">State</th>
+                                        </tr>
+                                        </thead>
+
+                                        <!-- Table body START -->
+                                        <tbody>
+                                        <!-- Table item -->
+                                        <tr><!-- th:each="board : ${boards}"> -->
+                                            <!-- Table data -->
+                                            <td> <!-- th:text="${board.id}"> -->
+                                                2122-04-14
+                                            </td>
+
+                                            <!-- Table data -->
+                                            <td class="text-center text-sm-start">
+                                                <!--                                                <a th:text="${board.title}" th:href="@{/noticeView(id=${board.id})}"></a>-->
+                                                0.0000000BTC
+                                            </td>
+
+                                            <!-- Table data -->
+                                            <td>
+                                                Outcoin
+                                            </td>
+
+                                            <!-- Table data -->
+                                            <td> <!-- th:text="${board.createDate}"> -->
+                                                0000000BTC
+                                            </td>
+
+                                            <!-- Table data -->
+                                            <td> <!-- th:text="${board.count}"> -->
+                                                0.0000000BTC
+                                            </td>
+                                            <td> <!-- th:text="${board.count}"> -->
+                                                OK!
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                        <!-- Table body END -->
+                                    </table>
+                                </div>
+                                <!-- Student list table END -->
+                            </div>
+
                         </div>
-                        <!-- Card body START -->
                     </div>
+
                     <!-- Payment method END -->
                 </div>
             </div><!-- Row END -->

@@ -75,7 +75,7 @@
                         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                             <!-- Offcanvas header -->
                             <div class="offcanvas-header bg-light">
-                                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Notice Insert</h5>
+                                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Faq Insert</h5>
                                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <!-- Offcanvas body -->
@@ -83,7 +83,7 @@
                                 <div class="bg-dark border rounded-3 pb-0 p-3 w-100">
                                     <!-- Dashboard menu -->
                                     <div class="list-group list-group-dark list-group-borderless">
-                                        <a class="list-group-item" href="#" th:href="@{/noticeForm}"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Notice Insert</a>
+                                        <a class="list-group-item" href="#" th:href="@{/faqForm}"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Faq Insert</a>
                                     </div>
                                 </div>
                             </div>
@@ -99,12 +99,12 @@
                     <div class="card bg-transparent border rounded-3">
                         <!-- Card header -->
                         <div class="card-header bg-transparent border-bottom">
-                            <h3 class="card-header-title mb-0">Notice Insert</h3>
+                            <h3 class="card-header-title mb-0">Faq Insert</h3>
                         </div>
                         <!-- Card body START -->
                         <div class="card-body">
                             <!-- Form -->
-                            <form class="row g-4 needs-validation" action="#" th:action="@{/noticeForm}" th:object="${board}" method="POST">
+                            <form class="row g-4 needs-validation" action="#" th:action="@{/faqForm}" th:object="${faq}" method="POST">
                                 <input type="hidden" th:field="*{id}">
                                 <!-- Title -->
                                 <div class="col-md-12">
@@ -130,8 +130,8 @@
 
                                 <!-- Save button -->
                                 <div class="d-sm-flex justify-content-end">
-                                    <a type="button" class="btn btn-primary mb-0 mx-1" th:href="@{/notice}">Cancel</a>
-                                    <button type="submit" class="btn btn-primary mb-0">Save Notice</button>
+                                    <a type="button" class="btn btn-primary mb-0 mx-1" th:href="@{/faq}">Cancel</a>
+                                    <button type="submit" class="btn btn-primary mb-0">Save Faq</button>
                                 </div>
                             </form>
                         </div>

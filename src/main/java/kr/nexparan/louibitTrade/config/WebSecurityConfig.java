@@ -23,30 +23,30 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-//        http
-//                .authorizeRequests()
-//                    .antMatchers("/", "/spot", "/signup").permitAll()
-//                    .anyRequest().authenticated()
-//                    .and()
-//                .formLogin()
-//                    .loginPage("/signin")
-//                    .permitAll()
-//                    .and()
-//                .logout()
-//                    .permitAll();
+        http
+                .authorizeRequests()
+                    .antMatchers("/", "/spot", "/signup", "/admin/**").permitAll()
+                    .anyRequest().authenticated()
+                    .and()
+                .formLogin()
+                    .loginPage("/signin")
+                    .permitAll()
+                    .and()
+                .logout()
+                    .permitAll();
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.jdbcAuthentication()
-//                .dataSource(dataSource)
-//                .usersByUsernameQuery("select email, password, enabled "
-//                        + "from User "
-//                        + "where email = ?")
-//                .authoritiesByUsernameQuery("select email, name "
-//                        + "from User_Role ur inner join User u on ur.userId = u.id "
-//                        + "inner join Role r on ur.roleId = r.id "
-//                        + "where email = ?");
+        auth.jdbcAuthentication()
+                .dataSource(dataSource)
+                .usersByUsernameQuery("select email, password, enabled "
+                        + "from User "
+                        + "where email = ?")
+                .authoritiesByUsernameQuery("select email, name "
+                        + "from User_Role ur inner join User u on ur.userId = u.id "
+                        + "inner join Role r on ur.roleId = r.id "
+                        + "where email = ?");
     }
 
     @Bean

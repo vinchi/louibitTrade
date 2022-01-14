@@ -1,9 +1,11 @@
 package kr.nexparan.louibitTrade.controller;
 
 import kr.nexparan.louibitTrade.model.Board;
+import kr.nexparan.louibitTrade.model.Faq;
 import kr.nexparan.louibitTrade.model.RoleType;
 import kr.nexparan.louibitTrade.model.User;
 import kr.nexparan.louibitTrade.repository.BoardRepository;
+import kr.nexparan.louibitTrade.repository.FaqRepository;
 import kr.nexparan.louibitTrade.repository.UserRepository;
 import kr.nexparan.louibitTrade.service.UserService;
 import kr.nexparan.louibitTrade.validator.BoardValidator;
@@ -37,6 +39,8 @@ public class IndexController {
     private UserRepository userRepository;
     @Autowired
     private BoardRepository boardRepository;
+    @Autowired
+    private FaqRepository faqRepository;
     @Autowired
     private BoardValidator boardValidator;
     @Autowired
@@ -73,10 +77,9 @@ public class IndexController {
 
     @GetMapping("/notice")
     public String notice(Model model, @PageableDefault(size = 5) Pageable pageable, @RequestParam(required = false, defaultValue="") String searchText) {
-        //Page<Board> boards = boardRepository.findAll(pageable);
         Page<Board> boards = boardRepository.findByTitleContainingOrContentContaining(searchText, searchText, pageable);
-        int startPage = Math.max(1, boards.getPageable().getPageNumber() - 4);
-        int endPage = Math.min(boards.getTotalPages(), boards.getPageable().getPageNumber() + 4);
+        int startPage = 1;
+        int endPage = boards.getTotalPages() == 0 ? 1 : boards.getTotalPages();
         model.addAttribute("startPage", startPage);
         model.addAttribute("endPage", endPage);
         model.addAttribute("boards", boards);
@@ -91,8 +94,21 @@ public class IndexController {
     }
 
     @GetMapping("/faq")
-    public String faq() {
+    public String faq(Model model, @PageableDefault(size = 5) Pageable pageable, @RequestParam(required = false, defaultValue="") String searchText) {
+        Page<Faq> faqs = faqRepository.findByTitleContainingOrContentContaining(searchText, searchText, pageable);
+        int startPage = 1;
+        int endPage = faqs.getTotalPages() == 0 ? 1 : faqs.getTotalPages();
+        model.addAttribute("startPage", startPage);
+        model.addAttribute("endPage", endPage);
+        model.addAttribute("faqs", faqs);
         return "faq";
+    }
+
+    @GetMapping("/faqView")
+    public String faqView(Model model, @RequestParam(required = true) Long id) {
+        Faq faq = faqRepository.findById(id).orElse(null);
+        model.addAttribute("board", faq);
+        return "faqView";
     }
 
     @GetMapping("/contact")
