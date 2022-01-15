@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -25,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
                 .authorizeRequests()
-                    .antMatchers("/", "/spot", "/signup", "/admin/**").permitAll()
+                    .antMatchers("/", "/spot", "/signup", "/notice", "/faq", "/contact").permitAll()
                     .anyRequest().authenticated()
                     .and()
                 .formLogin()
@@ -53,5 +54,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Lazy
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    //인증을 제외해준다. 실서버시 없애야 함
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/**").antMatchers("/admin/");
     }
 }

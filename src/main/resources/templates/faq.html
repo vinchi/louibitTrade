@@ -96,115 +96,106 @@
                 <!-- Right sidebar END -->
 
                 <!-- Main content START -->
-                <div class="col-xl-9">
-                    <!-- Card START -->
-                    <div class="card border bg-transparent rounded-3">
-                        <!-- Card header START -->
-                        <div class="card-header bg-transparent border-bottom">
-                            <h3 class="mb-0" th:text="#{s_faq}">My Students List</h3>
-                        </div>
-                        <!-- Card header END -->
 
-                        <!-- Card body START -->
-                        <div class="card-body">
+                    <div class="col-xl-9">
+                        <!-- Title -->
+                        <h3 class="mb-4">Frequently Asked Questions</h3>
 
-                            <!-- Search and select START -->
-                            <div class="row g-3 align-items-center justify-content-between mb-4">
-                                <!-- Search -->
-                                <div class="col-md-8">
-                                    <form class="rounded position-relative">
-                                        <input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
-                                        <button class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
-                                    </form>
-                                </div>
-
-                                <!-- Select option -->
-                                <div class="col-md-3">
-                                    <!-- Short by filter -->
-                                    <form>
-                                        <div class="choices" data-type="select-one" tabindex="0" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false"><div class="choices__inner"><select class="form-select js-choice border-0 z-index-9 bg-transparent choices__input" aria-label=".form-select-sm" hidden="" tabindex="-1" data-choice="active"><option value="" data-custom-properties="[object Object]">Sort by</option></select><div class="choices__list choices__list--single"><div class="choices__item choices__placeholder choices__item--selectable" data-item="" data-id="1" data-value="" data-custom-properties="[object Object]" aria-selected="true">Sort by</div></div></div><div class="choices__list choices__list--dropdown" aria-expanded="false"><input type="text" class="choices__input choices__input--cloned" autocomplete="off" autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list" aria-label="Sort by" placeholder=""><div class="choices__list" role="listbox"><div id="choices--6e8m-item-choice-4" class="choices__item choices__item--choice is-selected choices__placeholder choices__item--selectable is-highlighted" role="option" data-choice="" data-id="4" data-value="" data-select-text="Press to select" data-choice-selectable="" aria-selected="true">Sort by</div><div id="choices--6e8m-item-choice-1" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="1" data-value="Free" data-select-text="Press to select" data-choice-selectable="">Free</div><div id="choices--6e8m-item-choice-2" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="2" data-value="Newest" data-select-text="Press to select" data-choice-selectable="">Newest</div><div id="choices--6e8m-item-choice-3" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="3" data-value="Oldest" data-select-text="Press to select" data-choice-selectable="">Oldest</div></div></div></div>
-                                    </form>
+                        <!-- FAQ START -->
+                        <div class="accordion accordion-icon accordion-bg-light" id="accordionExample2">
+                            <!-- Item -->
+                            <div class="accordion-item mb-3">
+                                <h6 class="accordion-header font-base" id="heading-1">
+                                    <button class="accordion-button fw-bold rounded d-inline-block collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
+                                        How can we help?
+                                    </button>
+                                </h6>
+                                <!-- Body -->
+                                <div id="collapse-1" class="accordion-collapse collapse" aria-labelledby="heading-1" data-bs-parent="#accordionExample2" style="">
+                                    <div class="accordion-body mt-3">
+                                        Yet remarkably appearance gets him his projection. Diverted endeavor bed peculiar men the not desirous. Acuteness abilities ask can offending furnished fulfilled sex. Warrant fifteen exposed ye at mistake. Blush since so in noisy still built up an again. As young ye hopes no he place means. Partiality diminution gay yet entreaties admiration. In mention perhaps attempt pointed suppose. Unknown ye chamber of warrant of Norland arrived.
+                                    </div>
                                 </div>
                             </div>
-                            <!-- Search and select END -->
 
-                            <!-- Student list table START -->
-                            <div class="table-responsive border-0">
-                                <table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
-                                    <!-- Table head -->
-                                    <thead>
-                                    <tr>
-                                        <th scope="col" class="border-0 rounded-start">#</th>
-                                        <th scope="col" class="border-0">Title</th>
-                                        <th scope="col" class="border-0">Author</th>
-                                        <th scope="col" class="border-0">Enrolled date</th>
-                                        <th scope="col" class="border-0 rounded-end">Count</th>
-                                    </tr>
-                                    </thead>
-
-                                    <!-- Table body START -->
-                                    <tbody>
-                                        <!-- Table item -->
-                                        <tr th:each="faq : ${faqs}">
-                                            <!-- Table data -->
-                                            <td th:text="${faq.id}">
-                                                10
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td class="text-center text-sm-start">
-                                                <a th:text="${faq.title}" th:href="@{/faqView(id=${faq.id})}"></a>
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td>
-                                                전민수
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td th:text="${faq.createDate}">
-                                                4/9/2021
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td th:text="${faq.count}">
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    <!-- Table body END -->
-                                </table>
+                            <!-- Item -->
+                            <div class="accordion-item mb-3">
+                                <h6 class="accordion-header font-base" id="heading-2">
+                                    <button class="accordion-button fw-bold rounded d-inline-block collapsed d-block pe-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+                                        How to edit my Profile?
+                                    </button>
+                                </h6>
+                                <!-- Body -->
+                                <div id="collapse-2" class="accordion-collapse collapse" aria-labelledby="heading-2" data-bs-parent="#accordionExample2">
+                                    <div class="accordion-body mt-3">
+                                        What deal evil rent by real in. But her ready least set lived spite solid. September how men saw tolerably two behavior arranging. She offices for highest and replied one venture pasture. Applauded no discovery in newspaper allowance am northward. Frequently partiality possession resolution at or appearance unaffected me. Engaged its was the evident pleased husband. Ye goodness felicity do disposal dwelling no. First am plate jokes to began to cause a scale. Subjects he prospect elegance followed no overcame possible it on. Improved own provided blessing may peculiar domestic. Sight house has sex never. No visited raising gravity outward subject my cottage Mr be.
+                                    </div>
+                                </div>
                             </div>
-                            <!-- Student list table END -->
 
-                            <!-- Pagination START -->
-                            <div class="d-sm-flex justify-content-sm-between align-items-sm-center mt-4 mt-sm-3">
-                                <!-- Content -->
-                                <p class="mb-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
-                                <!-- Pagination -->
-                                <nav class="d-flex justify-content-center mb-0" aria-label="navigation">
-                                    <ul class="pagination pagination-sm pagination-primary-soft mb-0 pb-0">
-                                        <li class="page-item mb-0" th:classappend="${1 == faqs.pageable.pageNumber + 1} ? 'disabled'">
-                                            <a class="page-link" href="#" th:href="@{/faq(page=${faqs.pageable.pageNumber - 1}, searchText=${param.searchText})}" $tabindex="-1">
-                                                <i class="fas fa-angle-left"></i>
-                                            </a>
-                                        </li>
-                                        <li class="page-item mb-0" th:classappend="${i == faqs.pageable.pageNumber + 1} ? 'disabled'" th:each="i: ${#numbers.sequence(startPage, endPage)}">
-                                            <a class="page-link" href="#" th:href="@{/faq(page=${i - 1}, searchText=${param.searchText})}" th:text="${i}">2</a>
-                                        </li>
-                                        <li class="page-item mb-0" th:classappend="${endPage == faqs.pageable.pageNumber + 1} ? 'disabled'">
-                                            <a class="page-link" href="#" th:href="@{/faq(page=${faqs.pageable.pageNumber + 1}, searchText=${param.searchText})}" >
-                                                <i class="fas fa-angle-right"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
+                            <!-- Item -->
+                            <div class="accordion-item mb-3">
+                                <h6 class="accordion-header font-base" id="heading-3">
+                                    <button class="accordion-button fw-bold collapsed rounded d-block pe-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+                                        How much should I offer the sellers?
+                                    </button>
+                                </h6>
+                                <!-- Body -->
+                                <div id="collapse-3" class="accordion-collapse collapse" aria-labelledby="heading-3" data-bs-parent="#accordionExample2">
+                                    <div class="accordion-body mt-3">
+                                        Post no so what deal evil rent by real in. But her ready least set lived spite solid. September how men saw tolerably two behavior arranging. She offices for highest and replied one venture pasture. Applauded no discovery in newspaper allowance am northward. Frequently partiality possession resolution at or appearance unaffected me. Engaged its was the evident pleased husband. Ye goodness felicity do disposal dwelling no. First am plate jokes to began to cause a scale. Subjects he prospect elegance followed no overcame possible it on. Improved own provided blessing may peculiar domestic. Sight house has sex never. No visited raising gravity outward subject my cottage Mr be. Hold do at tore in park feet near my case. Invitation at understood occasional sentiments insipidity inhabiting in. Off melancholy alteration principles old. Is do speedily kindness properly oh. Respect article painted cottage he is offices parlors.
+                                    </div>
+                                </div>
                             </div>
-                            <!-- Pagination END -->
+
+                            <!-- Item -->
+                            <div class="accordion-item mb-3">
+                                <h6 class="accordion-header font-base" id="heading-4">
+                                    <button class="accordion-button fw-bold collapsed rounded d-block pe-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
+                                        Installation Guide
+                                    </button>
+                                </h6>
+                                <!-- Body -->
+                                <div id="collapse-4" class="accordion-collapse collapse" aria-labelledby="heading-4" data-bs-parent="#accordionExample2">
+                                    <div class="accordion-body mt-3">
+                                        <p>What deal evil rent by real in. But her ready least set lived spite solid. September how men saw tolerably two behavior arranging. She offices for highest and replied one venture pasture. Applauded no discovery in newspaper allowance am northward. Frequently partiality possession resolution at or appearance unaffected me. Engaged its was the evident pleased husband. Ye goodness felicity do disposal dwelling no. First am plate jokes to began to cause a scale. Subjects he prospect elegance followed no overcame possible it on. Improved own provided blessing may peculiar domestic. Sight house has sex never. No visited raising gravity outward subject my cottage Mr be.</p>
+                                        <p class="mb-0">At the moment, we only accept Credit/Debit cards and Paypal payments. Paypal is the easiest way to make payments online. While checking out your order. Be sure to fill in correct details for fast &amp; hassle-free payment processing.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item -->
+                            <div class="accordion-item mb-3">
+                                <h6 class="accordion-header font-base" id="heading-5">
+                                    <button class="accordion-button fw-bold collapsed rounded d-block pe-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
+                                        Additional Options and Services
+                                    </button>
+                                </h6>
+                                <!-- Body -->
+                                <div id="collapse-5" class="accordion-collapse collapse" aria-labelledby="heading-5" data-bs-parent="#accordionExample2">
+                                    <div class="accordion-body mt-3">
+                                        Post no so what deal evil rent by real in. But her ready least set lived spite solid. September how men saw tolerably two behavior arranging. She offices for highest and replied one venture pasture. Applauded no discovery in newspaper allowance am northward. Frequently partiality possession resolution at or appearance unaffected me. Engaged its was the evident pleased husband. Ye goodness felicity do disposal dwelling no. First am plate jokes to began to cause a scale. Subjects he prospect elegance followed no overcame possible it on. Improved own provided blessing may peculiar domestic. Sight house has sex never. No visited raising gravity outward subject my cottage Mr be. Hold do at tore in park feet near my case. Invitation at understood occasional sentiments insipidity inhabiting in. Off melancholy alteration principles old. Is do speedily kindness properly oh. Respect article painted cottage he is offices parlors.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item -->
+                            <div class="accordion-item">
+                                <h6 class="accordion-header font-base" id="heading-6">
+                                    <button class="accordion-button fw-bold collapsed rounded d-block pe-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-6" aria-expanded="false" aria-controls="collapse-6">
+                                        What's are the difference between a college and a university?
+                                    </button>
+                                </h6>
+                                <!-- Body -->
+                                <div id="collapse-6" class="accordion-collapse collapse" aria-labelledby="heading-6" data-bs-parent="#accordionExample2">
+                                    <div class="accordion-body mt-3">
+                                        Post no so what deal evil rent by real in. But her ready least set lived spite solid. September how men saw tolerably two behavior arranging. She offices for highest and replied one venture pasture. Applauded no discovery in newspaper allowance am northward. Frequently partiality possession resolution at or appearance unaffected me. Engaged its was the evident pleased husband. Ye goodness felicity do disposal dwelling no. First am plate jokes to began to cause a scale. Subjects he prospect elegance followed no overcame possible it on. Improved own provided blessing may peculiar domestic. Sight house has sex never. No visited raising gravity outward subject my cottage Mr be. Hold do at tore in park feet near my case. Invitation at understood occasional sentiments insipidity inhabiting in. Off melancholy alteration principles old. Is do speedily kindness properly oh. Respect article painted cottage he is offices parlors.
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <!-- Card body START -->
+                        <!-- FAQ END -->
                     </div>
-                    <!-- Card END -->
-                </div>
                 <!-- Main content END -->
             </div><!-- Row END -->
         </div>
