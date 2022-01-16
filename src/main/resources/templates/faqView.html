@@ -123,8 +123,8 @@
                                     </div>
 
                                     <!-- Content -->
-                                    <h6><span class="text-body fw-light">Title on : </span><span th:text="${board.title}">How to implement sitemap on sass</span></h6>
-                                    <p th:text="${#strings.replace(${board.content}, newLineChar, '&lt;br /&gt;'">Satisfied conveying a dependent contented he gentleman agreeable do be. Warrant private blushes removed an in equally totally if. Delivered dejection necessary objection do Mr prevailed. Mr feeling does chiefly cordial in do. </p>
+                                    <h6><span class="text-body fw-light">Title on : </span><span th:text="${faq.title}">How to implement sitemap on sass</span></h6>
+                                    <p th:utext="${faq.content}">Satisfied conveying a dependent contented he gentleman agreeable do be. Warrant private blushes removed an in equally totally if. Delivered dejection necessary objection do Mr prevailed. Mr feeling does chiefly cordial in do. </p>
 
                                     <!-- Button -->
                                     <div class="text-end">
@@ -141,7 +141,7 @@
                                         </div>
                                     </div>
                                     <div class="text-end">
-                                        <a class="btn btn-sm btn-primary mt-3" th:href="@{/notice}">
+                                        <a class="btn btn-sm btn-primary mt-3" th:href="@{/faq}">
                                             Back
                                         </a>
                                     </div>

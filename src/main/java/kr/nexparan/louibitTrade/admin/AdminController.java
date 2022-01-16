@@ -4,6 +4,8 @@ import kr.nexparan.louibitTrade.model.Board;
 import kr.nexparan.louibitTrade.model.Faq;
 import kr.nexparan.louibitTrade.repository.BoardRepository;
 import kr.nexparan.louibitTrade.repository.FaqRepository;
+import kr.nexparan.louibitTrade.service.BoardService;
+import kr.nexparan.louibitTrade.service.FaqService;
 import kr.nexparan.louibitTrade.validator.BoardValidator;
 import kr.nexparan.louibitTrade.validator.FaqValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +23,16 @@ public class AdminController {
     @Autowired
     private BoardRepository boardRepository;
     @Autowired
+    private BoardService boardService;
+    @Autowired
     private BoardValidator boardValidator;
 
     @Autowired
     private FaqRepository faqRepository;
     @Autowired
     private FaqValidator faqValidator;
+    @Autowired
+    private FaqService faqService;
 
     @GetMapping("/noticeForm")
     public String noticeForm(Model model, @RequestParam(required = false) Long id) {
@@ -46,8 +52,7 @@ public class AdminController {
         if(bindingResult.hasErrors()) {
             return "noticeForm";
         }
-
-        boardRepository.save(board);
+        boardService.save(board);
         return "redirect:/notice";
     }
 
@@ -66,9 +71,9 @@ public class AdminController {
     public String faqForm(@Valid Faq faq, BindingResult bindingResult) {
         faqValidator.validate(faq, bindingResult);
         if(bindingResult.hasErrors()) {
-            return "noticeForm";
+            return "faqForm";
         }
-        faqRepository.save(faq);
+        faqService.save(faq);
         return "redirect:/faq";
     }
 
