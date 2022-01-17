@@ -57,8 +57,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     //인증을 제외해준다. 실서버시 없애야 함
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/**").antMatchers("/admin/");
-    }
+//    @Override
+//    public void configure(WebSecurity web) throws Exception {
+//        web.ignoring().antMatchers("/**").antMatchers("/admin/");
+//    }
 }

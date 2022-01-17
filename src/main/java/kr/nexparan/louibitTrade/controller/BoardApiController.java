@@ -44,10 +44,10 @@ class BoardApiController {
     Board replaceBoard(@RequestBody Board newBoard, @PathVariable Long id) {
 
         return repository.findById(id)
-                .map(employee -> {
-                    employee.setTitle(newBoard.getTitle());
-                    employee.setContent(newBoard.getContent());
-                    return repository.save(employee);
+                .map(board -> {
+                    board.setTitle(newBoard.getTitle());
+                    board.setContent(newBoard.getContent());
+                    return repository.save(board);
                 })
                 .orElseGet(() -> {
                     newBoard.setId(id);

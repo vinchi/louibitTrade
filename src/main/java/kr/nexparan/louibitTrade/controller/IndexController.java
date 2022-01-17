@@ -1,11 +1,9 @@
 package kr.nexparan.louibitTrade.controller;
 
-import kr.nexparan.louibitTrade.model.Board;
-import kr.nexparan.louibitTrade.model.Faq;
-import kr.nexparan.louibitTrade.model.RoleType;
-import kr.nexparan.louibitTrade.model.User;
+import kr.nexparan.louibitTrade.model.*;
 import kr.nexparan.louibitTrade.repository.BoardRepository;
 import kr.nexparan.louibitTrade.repository.FaqRepository;
+import kr.nexparan.louibitTrade.repository.ReplyRepository;
 import kr.nexparan.louibitTrade.repository.UserRepository;
 import kr.nexparan.louibitTrade.service.UserService;
 import kr.nexparan.louibitTrade.validator.BoardValidator;
@@ -45,6 +43,8 @@ public class IndexController {
     private BoardValidator boardValidator;
     @Autowired
     private UserService userService;
+    @Autowired
+    private ReplyRepository replyRepository;
 
     @Autowired
     private MessageSource messageSource;
@@ -89,6 +89,8 @@ public class IndexController {
     @GetMapping("/noticeView")
     public String noticeView(Model model, @RequestParam(required = true) Long id) {
         Board board = boardRepository.findById(id).orElse(null);
+        List<Reply> replys = replyRepository.findByBoardId(id);
+        model.addAttribute("replys", replys);
         model.addAttribute("board", board);
         return "noticeView";
     }

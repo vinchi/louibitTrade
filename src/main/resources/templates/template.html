@@ -64,22 +64,22 @@
                 <!-- Nav Main menu START -->
                 <ul class="navbar-nav navbar-nav-scroll me-auto">
                     <!-- Nav item 1 Demos -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link active" href="#" th:href="@{/}" th:text="#{main}">Main</a>
+                    <li class="nav-item">
+                        <a class="nav-link" id="mainMenu" href="#" th:href="@{/}" th:text="#{main}">Main</a>
                     </li>
 
                     <!-- Nav item 2 Pages -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dealMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" th:text="#{deal}">Deal</a>
                         <ul class="dropdown-menu" aria-labelledby="dealMenu">
-                            <li> <a class="dropdown-item" href="instructor-list.html"  th:href="@{/spot}" th:text="#{spot}">Spot</a></li>
-                            <li> <a class="dropdown-item" href="instructor-single.html"  th:href="@{/spot}"  th:text="#{futures}">Futures</a></li>
+                            <li> <a class="dropdown-item" href="#"  th:href="@{/spot}" th:text="#{spot}">Spot</a></li>
+                            <li> <a class="dropdown-item" href="#"  th:href="@{/spot}"  th:text="#{futures}">Futures</a></li>
                         </ul>
                     </li>
 
                     <!-- Nav item 3 Account -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" th:href="@{/wallet}" th:text="#{wallet}">Wallet</a>
+                    <li class="nav-item">
+                        <a class="nav-link" id="walletMenu" href="#" th:href="@{/wallet}" th:text="#{wallet}">Wallet</a>
                     </li>
 
                     <!-- Nav item 4 Megamenu-->
@@ -135,8 +135,8 @@
                                     <img class="avatar-img rounded-circle shadow" src="assets/images/avatar/01.jpg" alt="avatar">
                                 </div>
                                 <div>
-                                    <a class="h6" href="#">Lori Ferguson</a>
-                                    <p class="small m-0">example@gmail.com</p>
+                                    <a class="h6" href="#" sec:authentication="name">메일</a>
+                                    <p class="small m-0" sec:authentication="principal.authorities">권한</p>
                                 </div>
                             </div>
                             <hr>

@@ -105,13 +105,13 @@
                         <div class="accordion accordion-icon accordion-bg-light" id="faqAccordion">
                             <!-- Item -->
                             <div class="accordion-item mb-3" th:each="faq : ${faqs}">
-                                <h6 class="accordion-header font-base" id="heading-1">
-                                    <button class="accordion-button fw-bold rounded d-inline-block collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
+                                <h6 class="accordion-header font-base" th:id="'heading-' + ${faq.id}">
+                                    <button class="accordion-button fw-bold rounded d-inline-block collapsed" type="button" data-bs-toggle="collapse" th:data-bs-target="'#collapse-' + ${faq.id}" aria-expanded="false" th:aria-controls="'heading-' + ${faq.id}">
                                         <span th:text="${faq.title}">Withdrawal time</span>
                                     </button>
                                 </h6>
                                 <!-- Body -->
-                                <div id="collapse-1" class="accordion-collapse collapse" aria-labelledby="heading-1" data-bs-parent="#accordionExample2" style="">
+                                <div th:id="'collapse-' + ${faq.id}" class="accordion-collapse collapse" th:aria-labelledby="'heading-' + ${faq.id}" data-bs-parent="faqAccordion">
                                     <div class="accordion-body mt-3" th:utext="${faq.content}">
                                     </div>
                                 </div>

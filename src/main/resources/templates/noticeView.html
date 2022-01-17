@@ -133,17 +133,35 @@
                                             Reply
                                         </a>
                                         <!-- collapse textarea -->
+
                                         <div class="collapse show" id="collapseComment">
-                                            <div class="d-flex mt-3">
-                                                <textarea class="form-control mb-0" placeholder="Add a comment..." rows="2" spellcheck="false"></textarea>
-                                                <button class="btn btn-sm btn-primary-soft ms-2 px-4 mb-0 flex-shrink-0"><i class="fas fa-paper-plane fs-5"></i></button>
-                                            </div>
+                                            <form action="#">
+                                                <input type="hidden" id="noticeId" th:value="${board.id}" />
+                                                <div class="d-flex mt-3">
+                                                    <textarea id="reply-content" class="form-control mb-0" placeholder="Add a comment..." rows="2" spellcheck="false"></textarea>
+                                                    <button id="btn-reply-save" type="button" class="btn btn-sm btn-primary-soft ms-2 px-4 mb-0 flex-shrink-0"><i class="fas fa-paper-plane fs-5"></i></button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                     <div class="text-end">
                                         <a class="btn btn-sm btn-primary mt-3" th:href="@{/notice}">
                                             Back
                                         </a>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Comment List</h5>
+                                            <ul id="reply--box" class="list-group mb-2">
+                                                <li id="reply--1" class="list-group-item d-flex justify-content-between" th:each="reply : ${replys}">
+                                                    <div th:text="${reply.content}">댓글 내용입니다.</div>
+                                                    <div class="d-flex">
+                                                        <div>작성자 : <span th:text="${reply.user.username}">admin</span>&nbsp;</div>
+                                                        <button href="#" class="badge text-dark">삭제</button>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -170,6 +188,8 @@ Footer START -->
 </footer>
 <!-- =======================
     Footer END -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="notice.js"></script>
 
 </body>
 </html>
