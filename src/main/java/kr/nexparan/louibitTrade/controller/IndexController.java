@@ -90,7 +90,7 @@ public class IndexController {
     public String noticeView(Model model, @RequestParam(required = true) Long id) {
         Board board = boardRepository.findById(id).orElse(null);
         List<Reply> replys = replyRepository.findByBoardId(id);
-        model.addAttribute("replys", replys);
+        board.setReplys(replys);
         model.addAttribute("board", board);
         return "noticeView";
     }

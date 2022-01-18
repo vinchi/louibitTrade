@@ -1,5 +1,6 @@
 package kr.nexparan.louibitTrade.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -37,11 +38,12 @@ public class Board {
     @ColumnDefault("0")
     private int count; //조회수
 
-    @ManyToOne(fetch = FetchType.EAGER) //Board = Many, User = One
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY) //Board = Many, User = One
     @JoinColumn(name = "userId")
     private User user; //누가 썼는지 DB는 오브젝트를 저장 할 수 없다. FK, 자바는 오브젝트를 저장할 수 있다.
 
-    @OneToMany(mappedBy = "board", fetch = FetchType.EAGER)// mappedBy 연관관계의 주인이 아니다 (난 FK가 아니에요) DB에 컬럼을 만들지 마세요.
+    @OneToMany(mappedBy = "board", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)// mappedBy 연관관계의 주인이 아니다 (난 FK가 아니에요) DB에 컬럼을 만들지 마세요.
     @OrderBy("id DESC")
     @JsonIgnoreProperties({"board"})
     private List<Reply> replys;

@@ -1,6 +1,7 @@
 package kr.nexparan.louibitTrade.service;
 
 import kr.nexparan.louibitTrade.model.Board;
+import kr.nexparan.louibitTrade.model.Reply;
 import kr.nexparan.louibitTrade.model.Role;
 import kr.nexparan.louibitTrade.model.User;
 import kr.nexparan.louibitTrade.repository.BoardRepository;
@@ -22,7 +23,10 @@ public class BoardService {
     private UserRepository userRepository;
     @Autowired
     private ReplyRepository replyRepository;
+    @Autowired
+    private BoardService boardService;
 
+    @Transactional
     public Board save(String email, Board board) {
         User user = userRepository.findByEmail(email);
         board.setUser(user);

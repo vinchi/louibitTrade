@@ -1,5 +1,6 @@
 package kr.nexparan.louibitTrade.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,10 +26,12 @@ public class Reply {
     @Column(nullable = false, length = 200) //대용량 데이터
     private String content;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "boardId")
     private Board board;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "userId")
     private User user;

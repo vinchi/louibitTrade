@@ -2,56 +2,55 @@ package kr.nexparan.louibitTrade.controller;
 
 import kr.nexparan.louibitTrade.model.User;
 import kr.nexparan.louibitTrade.repository.UserRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.thymeleaf.util.StringUtils;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/api")
 class UserApiController {
 
     @Autowired
-    private UserRepository repository;
+    private UserRepository userRepository;
 
-    // Aggregate root
-    // tag::get-aggregate-root[]
     @GetMapping("/users")
     List<User> all() {
-        return repository.findAll();
+        List<User> users = userRepository.findAll();
+        return users;
     }
-    // end::get-aggregate-root[]
 
     @PostMapping("/user")
     User newUser(@RequestBody User newUser) {
-        return repository.save(newUser);
+        return userRepository.save(newUser);
     }
 
     // Single item
 
     @GetMapping("/user/{id}")
     User one(@PathVariable Long id) {
-        return repository.findById(id).orElse(null);
+        return userRepository.findById(id).orElse(null);
     }
 
     @PutMapping("/user/{id}")
     User replaceUser(@RequestBody User newUser, @PathVariable Long id) {
 
-        return repository.findById(id)
+        return userRepository.findById(id)
                 .map(user -> {
 //                    user.setTitle(newUser.getTitle());
 //                    user.setContent(newUser.getContent());
-                    return repository.save(user);
+                    return userRepository.save(user);
                 })
                 .orElseGet(() -> {
                     newUser.setId(id);
-                    return repository.save(newUser);
+                    return userRepository.save(newUser);
                 });
     }
 
     @DeleteMapping("/user/{id}")
     void deleteUser(@PathVariable Long id) {
-        repository.deleteById(id);
+        userRepository.deleteById(id);
     }
 }
