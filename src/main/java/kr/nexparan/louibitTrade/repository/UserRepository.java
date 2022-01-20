@@ -10,13 +10,6 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    @EntityGraph("User.fetchBoard")
-    List<User> findAll();
 
     User findByEmail(String email);
-
-    //select * from user where username=1?;
-    Optional<User> findByUsername(String username);
-
-    User getByUsername(String name);
 }

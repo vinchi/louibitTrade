@@ -5,6 +5,7 @@ import kr.nexparan.louibitTrade.model.Board;
 import kr.nexparan.louibitTrade.model.Reply;
 import kr.nexparan.louibitTrade.model.User;
 import kr.nexparan.louibitTrade.repository.BoardRepository;
+import kr.nexparan.louibitTrade.repository.ReplyRepository;
 import kr.nexparan.louibitTrade.repository.UserRepository;
 import kr.nexparan.louibitTrade.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,8 @@ class BoardApiController {
     private BoardService boardService;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private ReplyRepository replyRepository;
 
     @GetMapping("/boards")
     List<Board> all(@RequestParam(required = false) String title, @RequestParam(required = false, defaultValue = "") String content) {
@@ -68,8 +71,12 @@ class BoardApiController {
 
     @PostMapping("/board/{boardId}/reply")
     public ResponseDto<Integer> replySave(@PathVariable Long boardId, @RequestBody Reply reply, Authentication authentication) {
-        User user = userRepository.getByUsername(authentication.getName());
-        boardService.save(reply, user);
+        String username = authentication.getName();
+        User user = userRepository.findByEmail(username);
+        Board board = boardRepository.findById(boardId).orElse(null);
+        reply.setUser(user);
+        reply.setBoard(board);
+        replyRepository.save(reply);
         return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
     }
 }

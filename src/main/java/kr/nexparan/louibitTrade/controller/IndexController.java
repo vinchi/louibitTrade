@@ -14,6 +14,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -26,6 +27,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Locale;
 
@@ -56,7 +58,13 @@ public class IndexController {
     }
 
     @GetMapping("/spot")
-    public String spot() {
+    public String spot(Model model, Authentication authentication) {
+        if(authentication == null) {
+
+        } else {
+            String username = authentication.getName();
+            log.debug("username : {}", username);
+        }
         return "spot";
     }
 

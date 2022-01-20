@@ -23,8 +23,7 @@ public class BoardService {
     private UserRepository userRepository;
     @Autowired
     private ReplyRepository replyRepository;
-    @Autowired
-    private BoardService boardService;
+
 
     @Transactional
     public Board save(String email, Board board) {

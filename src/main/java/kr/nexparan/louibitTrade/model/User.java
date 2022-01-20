@@ -9,6 +9,7 @@ import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +36,9 @@ public class User {
 
     @Column(nullable = false)
     private boolean enabled;
+
+    @ColumnDefault("0")
+    private BigDecimal point;
 
     @Builder.Default
     @JsonIgnore
